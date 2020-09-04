@@ -18,7 +18,7 @@
 | member1      | rfekry@mail.sfsu.edu |   Ramy1951              |
 | member2      |               |                 |
 | member3      |bribeiro1@mail.sfsu.edu               |beatrizmribeiro                 |
-| member4      |               |                 |
+| member4      |    ieke@mail.sfsu.edu           |                 | Ikenna-Eke
 | member5      |               |                 |
 | member6      |               |                 |
 
