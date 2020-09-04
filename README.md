@@ -17,7 +17,7 @@
 |    :---:     |     :---:     |     :---:       |
 | Ramy Fekry      | rfekry@mail.sfsu.edu |   Ramy1951              |
 | Giovann Fox       |gfox@mail.sfsu.edu        | giovannfox                |
-| member3      |bribeiro1@mail.sfsu.edu               |beatrizmribeiro                 |
+| Beatriz Ribeiro      |bribeiro1@mail.sfsu.edu               |beatrizmribeiro                 |
 | member4      |    ieke@mail.sfsu.edu           |Ikenna-Eke                 |
 | Jessica Serrano      |jserrano5@mail.sfsu.edu               |jserrano5                 |
 | member6      |               |                 |
