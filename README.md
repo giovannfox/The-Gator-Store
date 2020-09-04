@@ -18,8 +18,8 @@
 | Ramy Fekry      | rfekry@mail.sfsu.edu |   Ramy1951              |
 | member2      |               |                 |
 | member3      |bribeiro1@mail.sfsu.edu               |beatrizmribeiro                 |
-| Ikenna Eke     |    ieke@mail.sfsu.edu           |Ikenna-Eke                 |
-| member5      |               |                 |
+| member4      |    ieke@mail.sfsu.edu           |Ikenna-Eke                 |
+| Jessica Serrano      |jserrano5@mail.sfsu.edu               |jserrano5                 |
 | member6      |               |                 |
 
 ## NO code needs to be stored in the root of your repository. You may rename the application folder if you like to your team's application name. But all source code related to your team's application should be stored inside the application folder.
