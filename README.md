@@ -16,7 +16,7 @@
 | Student Name | Student Email | GitHub Username |
 |    :---:     |     :---:     |     :---:       |
 | Ramy Fekry      | rfekry@mail.sfsu.edu |   Ramy1951              |
-| member2      |               |                 |
+| Giovann Fox       |gfox@mail.sfsu.edu        | giovannfox                |
 | member3      |bribeiro1@mail.sfsu.edu               |beatrizmribeiro                 |
 | member4      |    ieke@mail.sfsu.edu           |Ikenna-Eke                 |
 | Jessica Serrano      |jserrano5@mail.sfsu.edu               |jserrano5                 |
