@@ -1,0 +1,15 @@
+.card {
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px; 
+}
+
+.btn {
+    margin-bottom:8px;
+    width: 300px;
+}
+
+.title {
+    margin-bottom:30px;
+    
+}
