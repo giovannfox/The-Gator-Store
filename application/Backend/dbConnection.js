@@ -4,26 +4,26 @@ const {
 } = require('ssh2');
 const sshClient = new Client();
 
-const dbServer = {
-    host: "35.163.149.5",
-    port: "22",
-    user: "prod",
-    password: "Production1!"
-}
+// const dbServer = {
+//     host: "35.163.149.5",
+//     port: "22",
+//     user: "prod",
+//     password: "Production1!"
+// }
 
-const tunnelConfig = {
-    host: "35.163.149.5",
-    port: 22,
-    username: "ubuntu",
-    privateKey: require('fs').readFileSync('../../credentials/team2.pem')
-}
+// const tunnelConfig = {
+//     host: "35.163.149.5",
+//     port: 22,
+//     username: "ubuntu",
+//     privateKey: require('fs').readFileSync('../../credentials/team2.pem')
+// }
 
-const forwardConfig = {
-    srcHost: '127.0.0.1',
-    srcPort: 3306,
-    dstHost: "127.0.0.1",
-    dstPort: 3306
-};
+// const forwardConfig = {
+//     srcHost: '127.0.0.1',
+//     srcPort: 3306,
+//     dstHost: "127.0.0.1",
+//     dstPort: 3306
+// };
 
 // const SSHConnection = new Promise((resolve, reject) => {
 //     sshClient.on('ready', () => {
@@ -53,9 +53,9 @@ const mysqlssh = require('mysql-ssh');
 
 var dbClient = null;
 
-const connect = () => {
+const connect = async () => {
     if (dbClient === null) {
-        dbClient = mysqlssh.connect({
+        await mysqlssh.connect({
                 host: "35.163.149.5",
                 port: 22,
                 username: "ubuntu",
@@ -68,7 +68,7 @@ const connect = () => {
             })
             .then(client => {
                 console.log("DB Connected!")
-                return client;
+                dbClient = client;
             })
             .catch(err => {
                 console.log(err)
@@ -77,7 +77,7 @@ const connect = () => {
 }
 
 const client = () => {
-    return client
+    return dbClient
 }
 
 const close = () => {
@@ -88,5 +88,6 @@ const close = () => {
 module.exports = {
     connect,
     client,
-    close
+    close,
+    // client: dbClient
 }
