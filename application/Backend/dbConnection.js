@@ -62,9 +62,13 @@ const connect = async () => {
                 privateKey: require('fs').readFileSync('../../credentials/team2.pem')
             }, {
                 host: '127.0.0.1',
-                user: 'prod',
-                password: 'Production1!',
-                database: 'dev'
+                // user: 'prod',
+                // password: 'Production1!',
+                // database: 'production',
+
+                user: 'dev', 
+                password: 'Development1!', 
+                database: 'dev',
             })
             .then(client => {
                 console.log("DB Connected!")
