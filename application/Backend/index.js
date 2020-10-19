@@ -2,13 +2,13 @@ const express = require('express');
 const path = require('path');
 const db = require('./dbConnection')
 const app = express();
-const aboutMeRouter = require('./controllers/aboutMePage.js');
+const search = require('./controllers/search.js');
 const PORT = 3000;
 
 db.connect()
 
 /* General routes */
-// app.get('/about', aboutMeRouter);
+app.use('/search', search);
 app.use('/about', express.static(path.join(__dirname, "./../Frontend/About-individual-pages")));
 
 
