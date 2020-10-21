@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
-const db = require('./dbConnection')
+const db = require('./dbConnection');
 const app = express();
 const search = require('./controllers/search.js');
+var morgan = require('morgan');
 const PORT = 3000;
-var morgan = require('morgan')
 
 db.connect()
 
