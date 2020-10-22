@@ -7,7 +7,7 @@
 
 # Below is a list of items required. Missing items will causes points to be deducted from multiple milestone submissions.
 
-1. Server URL or IP IP - 34.213.41.138 URL - ec2-34-213-41-138.us-west-2.compute.amazonaws.com
+1. Server URL or IP IP - 35.163.149.5 URL - ec2-35-163-149-5.us-west-2.compute.amazonaws.com
 2. SSH username - ubuntu
 3. SSH password or key.
     <br> If a ssh key is used please upload the key to the credentials folder.
