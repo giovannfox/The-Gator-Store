@@ -11,7 +11,8 @@ router.get('/results/:searchKey', function (req, res) {
     const client = db.client()
     client.query("SELECT title, description, image, instructor, course, price FROM dev.Posts WHERE `approval_flag`=1 AND (`description` LIKE '%" + req.params.searchKey + "%' OR `title` LIKE '% " + req.params.searchKey + "%') ORDER BY visits DESC limit 20;")
         .then(([results, fields]) => {
-            res.send(results)
+            console.log("results:", results)
+            return res.send(results)
         })
         .catch((err) => {
             if (err) throw err
