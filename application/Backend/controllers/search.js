@@ -11,7 +11,8 @@ router.get('/results/:searchKey', function (req, res) {
     const client = db.client()
     client.query("SELECT * FROM dev.Posts WHERE `Description` LIKE '%" + req.params.searchKey + "%' OR `Title` LIKE '%" + req.params.searchKey + "%';")
         .then(([results, fields]) => {
-            res.send(results)
+            console.log("results:", results)
+            return res.send(results)
         })
         .catch((err) => {
             if (err) throw err

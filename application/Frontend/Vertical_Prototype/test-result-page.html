@@ -12,6 +12,21 @@
         <link rel="stylesheet" type="text/css" href="assets/style.css">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        
+        <!-- <script>
+          $(document).ready(function(){
+          $(".default_option").click(function(){
+          $(".dropdown ul").addClass("active");
+        });
+        
+        $(".dropdown ul li").click(function(){
+          var text = $(this).text();
+          $(".default_option").text(text);
+          $(".dropdown ul").removeClass("active");
+        });
+          });
+  
+        </script>  -->
 
     </head>
 
@@ -24,39 +39,75 @@
           <h4 style="text-align:center"> Team 2</h4>
       </div>
 
-      <div>
-        <h3>Search Results</h3>
+      
+      <!-- <div class="wrapper">
+        <form method="get" name="search" action="/search.html">
+        <div class="search_box">
+            <div class="dropdown">
+                <div class="default_option">Categories</div>  
+                <ul>
+                  <li>All</li>
+                  <li>Books</li>
+                  <li>Electronics</li>
+                  <li>Furniture</li>
+                  <li>Clothing</li>
+                  <li>Supplies</li>
+                  <li>Household</li>
+                </ul>
+            </div>
+            <div class="search_field">
+              <input id="search" type="text" class="input" placeholder="Search" method="get" name="search" action="search.html">
+              <i class="fas fa-search"></i>
+          </div>
+        </div>
+    </form>
+    </div> -->
+        
+      <h3>Search Results</h3>
+      <div id="result">
 
-        <p>
-          Title: <span id="title"></span><br />
-          Description: <span id="description"></span><br />
-          Image: <span id="image"></span><br />
-          Instructor: <span id="instructor"></span><br />
-          Course: <span id="course"></span><br />
-          Price: <span id="price"></span>
-        </p>
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+
       </div>
 
       <script>
-        console.log('Loading results');
+          $(document).ready(async function() {
+          // const searchResult = await fetch("http://localhost:3000/search/results/jacket",{
+          //     mode: 'cors',
+          //     headers: {
+          //       'Access-Control-Allow-Origin':'*'
+          //     }
+          //   })
+          //   .then((res)=>{
+          //     console.log("results from backend", res)
+          //     return res.json()
+          //   })
+          //   .catch((err)=>{
+          //     console.log("err from backend", res)
+          //   })
 
-        async function getSearch() {
-          const response = await fetch('https://localhost:3000/search/results');
-          const data = await response.json();
-          const { title, description, image, instructor, course, price } = data;
+          let response = await fetch('http://localhost:3000/search/results/jacket');
 
-          document.getElementById('title').textContent = title;
-          document.getElementById('description').textContent = description;
-          //document.getElementById('image').value = image;
+            const searchResult = await response.json(); // read response body as text
+            
+            console.log(searchResult);
 
-          document.getElementById('instructor').textContent = instructor;
-          document.getElementById('course').textContent = course;
-          document.getElementById('price').textContent = price;
-        }
-        
-        getSearch();
-
-        console.log(data);
+           for (var i = 0; i < searchResult.length; i++) {
+             searchResult.forEach(item => {
+              document.getElementById('result').innerHTML += '<p>'+item.image+'<br>'+item.title+'</p>'
+              document.getElementById('result').innerHTML += '<p>Instructor: '+item.instructor+'<br>Course: '+item.course+' <br>Description: '+item.description+' </p>'
+              document.getElementById('result').innerHTML += '<p>Price: $'+item.price+' </p>'
+             }); 
+           
+           } 
+        });
 
       </script>
 
