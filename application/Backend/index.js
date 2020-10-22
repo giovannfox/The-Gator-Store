@@ -1,14 +1,35 @@
 const express = require('express');
 const path = require('path');
+const db = require('./dbConnection');
 const app = express();
-const aboutMeRouter = require('./controllers/aboutMePage.js');
+const search = require('./controllers/search.js');
+var morgan = require('morgan');
+var cors = require('cors');
 const PORT = 3000;
 
+db.connect()
 
 /* General routes */
-// app.get('/about', aboutMeRouter);
-app.use('/about', express.static(path.join(__dirname, "./../Frontend/About-individual-pages")));
+app.use(morgan("dev"))
+// app.use(cors({
+//     origin: "*"
+// }))
+app.use('/search', search);
+app.get('/search')
 
-app.listen(PORT, () => {
+app.use('/about', express.static(path.join(__dirname, "./../Frontend/About-individual-pages")));
+app.get('/about', function(req,res){
+    res.sendFile(path.join(__dirname, "./../Frontend/About-individual-pages/about.html"));
+})
+
+app.use('/',express.static(path.join(__dirname, "./../Frontend/Vertical_Prototype/")));
+app.route('/')
+    .get( function(req, res){
+        res.sendFile(path.join(__dirname, './../Frontend/Vertical_Prototype/home.html'));
+    })
+    //.post(function(req, res))
+
+
+app.listen(PORT, async () => {
     console.log("Listening now on port " + PORT);
 });

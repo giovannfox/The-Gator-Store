@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <!-- Bootstrap CSS file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <!-- Main Stylesheet File -->
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script>
+        $(document).ready(function(){
+        $(".default_option").click(function(){
+        $(".dropdown ul").addClass("active");
+      });
+      
+      $(".dropdown ul li").click(function(){
+        var text = $(this).text();
+        $(".default_option").text(text);
+        $(".dropdown ul").removeClass("active");
+      });
+        });
+
+    </script> 
+    
+</head>
+
+<body>
+
+<div class="title" >
+</br>
+    <h4 style="text-align:center"> Software Engineering class SFSU</h4>
+    <h4 style="text-align:center"> Fall 2020</h4>
+    <h4 style="text-align:center"> Section 03 </h4>
+    <h4 style="text-align:center"> Team 2</h4>
+</div>
+
+<div class="wrapper">
+    <form method="get" name="search" action="/test-result-page.html">
+    <div class="search_box">
+        <div class="dropdown">
+            <div class="default_option">Categories</div>  
+            <ul>
+              <li>Books</li>
+              <li>Electronics</li>
+              <li>Furniture</li>
+              <li>Clothing</li>
+              <li>Supplies</li>
+              <li>Household</li>
+            </ul>
+        </div>
+        <div class="search_field">
+          <input id="search" type="text" class="input" placeholder="Search" name="searchKey">
+          <i class="fas fa-search"></i>
+      </div>
+    </div>
+</form>
+</div>
+
+</body>
+
+</html>
