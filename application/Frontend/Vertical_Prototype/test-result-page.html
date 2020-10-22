@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Search Results</title> 
+        <meta charset="UTF-8">
+    
+        <!-- Bootstrap CSS file -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <!-- Main Stylesheet File -->
+        <link rel="stylesheet" type="text/css" href="assets/style.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+    </head>
+
+    <body>
+      <div class="title" >
+      </br>
+          <h4 style="text-align:center"> Software Engineering class SFSU</h4>
+          <h4 style="text-align:center"> Fall 2020</h4>
+          <h4 style="text-align:center"> Section 03 </h4>
+          <h4 style="text-align:center"> Team 2</h4>
+      </div>
+
+      <div>
+        <h3>Search Results</h3>
+
+        <p>
+          Title: <span id="title"></span><br />
+          Description: <span id="description"></span><br />
+          Image: <span id="image"></span><br />
+          Instructor: <span id="instructor"></span><br />
+          Course: <span id="course"></span><br />
+          Price: <span id="price"></span>
+        </p>
+      </div>
+
+      <script>
+        console.log('Loading results');
+
+        function getSearch() {
+          const response = await fetch('/results');
+          const data = await response.json();
+          const { title, description, image, instructor, course, price } = data;
+
+          document.getElementById('title').textContent = title;
+          document.getElementById('description').textContent = description;
+          //document.getElementById('image').value = image;
+
+          document.getElementById('instructor').textContent = instructor;
+          document.getElementById('course').textContent = course;
+          document.getElementById('price').textContent = price;
+        }
+        
+        getSearch();
+
+
+
+      </script>
+
+    </body>
+
+</html>
