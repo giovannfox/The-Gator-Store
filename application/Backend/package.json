@@ -1,0 +1,27 @@
+{
+  "name": "application",
+  "version": "1.0.0",
+  "description": "## Purpose The purpose of this folder is to store all the source code and related files for your team's application. Source code MUST NOT be in any of folder. <strong>YOU HAVE BEEN WARNED</strong>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Team 2",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "mysql-ssh": "^1.0.6",
+    "mysql2": "^2.2.5",
+    "path": "^0.12.7",
+    "ssh2": "^0.8.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
