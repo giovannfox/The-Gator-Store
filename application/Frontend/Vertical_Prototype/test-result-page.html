@@ -76,9 +76,10 @@
 
               let response = await fetch('http://35.163.149.5:3000/search/results/'+ url.searchParams.get("searchKey"));
 
+
                 const searchResult = await response.json(); // read response body as text
                 
-                console.log(searchResult.results.foreach);
+                //console.log(searchResult.results.foreach);
 
                 searchResult.results.forEach(item => {
                   document.getElementById('result').innerHTML +=
