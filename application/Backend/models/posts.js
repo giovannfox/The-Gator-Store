@@ -8,9 +8,7 @@ const db = require('../dbConnection');
  */
 const searchPostsByCategory = (searchKey, Category = null) => {
     const client = db.client()
-
-    const promiseObject = client.query("SELECT title, description, image, instructor, course, price FROM dev.Posts WHERE `approval_flag`=1 AND (`title` LIKE '%" + searchKey + "%' OR `description` LIKE '%" + searchKey + "%') ORDER BY visits DESC limit 20;")
-        .then(([results, fields]) => {
+    const promiseObject = client.query("SELECT title, description, image, instructor, course, price FROM dev.Posts  JOIN dev.Categories on dev.Posts.`category_id`= dev.Categories.`ID` WHERE `approval_flag`=1 AND `Category` LIKE '%"+Category+"%' AND (`title` LIKE '%" + searchKey + "%' OR `description` LIKE '%" + searchKey + "%') ORDER BY visits DESC limit 20;")
             return {
                 searchKey,
                 results
