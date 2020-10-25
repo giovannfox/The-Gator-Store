@@ -64,43 +64,41 @@
     </div> -->
         
       <h3>Search Results</h3>
-      <div id="result">
+      <div id="container">
+        <div id="result" class="card-deck">
 
-        <!-- display in cards; will implement later -->
-        <!-- <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div> -->
+          <script>
+              $(document).ready(
+                async function() {
+                  const url = new URL(window.location.href);
+                  console.log(url.searchParams.get("searchKey"));
 
+
+              let response = await fetch('http://35.163.149.5:3000/search/results/'+ url.searchParams.get("searchKey"));
+
+                const searchResult = await response.json(); // read response body as text
+                
+                console.log(searchResult.results.foreach);
+
+                searchResult.results.forEach(item => {
+                  document.getElementById('result').innerHTML +=
+                    '<div class="card" style="width: 18rem;">' + 
+                      '<img class="card-img-top" src="' + item.image + '" alt="' + item.title + '">' +
+                      '<div class="card-body">' +
+                        '<h3 class="card-title">' + item.title + '</h3>' +
+                        '<p class="card-text">Instructor: ' + item.instructor + '<br>Course: ' + item.course + '<br>$' + item.price + '</p>' +
+                        '<p class="card-text">' + item.description + '</p>' +
+                        '<a href="#" class="btn btn-primary">See more details</a>' +
+                      '</div>' +
+                    '</div>'
+                }); 
+              
+            });
+
+          </script>
+
+        </div>
       </div>
-
-      <script>
-          $(document).ready(
-            async function() {
-              const url = new URL(window.location.href);
-              console.log(url.searchParams.get("searchKey"));
-
-
-          let response = await fetch('http://localhost:3000/search/results/'+ url.searchParams.get("searchKey"));
-
-            const searchResult = await response.json(); // read response body as text
-            
-            console.log(searchResult.results.foreach);
-
-             searchResult.results.forEach(item => {
-              document.getElementById('result').innerHTML += '<p>'+item.image+'<br>'+item.title+'</p>'
-              document.getElementById('result').innerHTML += '<p>Instructor: '+item.instructor+'<br>Course: '+item.course+' <br>Description: '+item.description+' </p>'
-              document.getElementById('result').innerHTML += '<p>Price: $'+item.price+' </p>'
-             }); 
-           
-        });
-
-      </script>
-
     </body>
 
 </html>
