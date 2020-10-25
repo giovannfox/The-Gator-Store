@@ -39,6 +39,7 @@
 </div>
 
 <div class="wrapper">
+<<<<<<< HEAD
     <form method="get" name="search" action="/test-result-page.html">
     <div class="search_box">
         <div class="dropdown">
@@ -52,12 +53,58 @@
               <li>Household</li>
             </ul>
         </div>
+||||||| 37d9b97
+    <form method="get" name="search" action="/search.html">
+    <div class="search_box">
+        <div class="dropdown">
+            <div class="default_option">Categories</div>  
+            <ul>
+              <li>Books</li>
+              <li>Electronics</li>
+              <li>Furniture</li>
+              <li>Clothing</li>
+              <li>Supplies</li>
+              <li>Household</li>
+            </ul>
+        </div>
+=======
+    <form method="get" name="search" action="/test-result-page.html">
+        <div class="search_box">
+            <div class="dropdown">
+            <!-- <div class="default_option">Categories</div>   -->
+                <select class="form-control selectWidth" id="selectionType" name="searchKey">
+                    <option>Categories</option> 
+                    <option value="books">Books</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="furniture">Furniture</option>
+                    <option value="clothings">Clothing</option>
+                    <option value="supplies">Supplies</option>
+                     <option value="household">Household</option>
+                </select>
+            </div>
+>>>>>>> origin/BeatrizBranch
         <div class="search_field">
+<<<<<<< HEAD
           <input id="search" type="text" class="input" placeholder="Search" name="searchKey">
           <i class="fas fa-search"></i>
       </div>
     </div>
 </form>
+||||||| 37d9b97
+          <input id="search" type="text" class="input" placeholder="Search" method="get" name="search" action="search.html">
+          <i class="fas fa-search"></i>
+      </div>
+    </div>
+</form>
+=======
+          <input id="search" type="text" class="input" placeholder="Search" name="searchKey">
+          <button type="submit" class="searchButton">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        </div>
+    </form>
+>>>>>>> origin/BeatrizBranch
 </div>
 
 </body>
