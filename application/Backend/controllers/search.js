@@ -4,7 +4,8 @@ const posts = require('../models/posts');
 
 
 router.get('/', (_req, res) => res.redirect('/test-result-page.html'));
-router.get('/results/:searchKey', async (req, res) => {
+
+router.get('/results', async (req, res) => {
     const searchedPosts = await posts.searchPostsByCategory(req.params.searchKey);
 
     if (searchedPosts.results.length > 0)
