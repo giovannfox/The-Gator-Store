@@ -13,10 +13,25 @@
     <br> If a ssh key is used please upload the key to the credentials folder.
 4. Database URL or IP and port used.
     <br><strong> NOTE THIS DOES NOT MEAN YOUR DATABASE NEEDS A PUBLIC FACING PORT.</strong> But knowing the IP and port number will help with SSH tunneling into the database. The default port is more than sufficient for this class.
-5. Database username
-6. Database password
-7. Database name (basically the name that contains all your tables)
+    host: "35.163.149.5",
+    port: "3306",
+    database: "dev",
+5. Database username: dev
+6. Database password: Development1!
+7. Database name (basically the name that contains all your tables): dev
 8. Instructions on how to use the above information.
+To connect to the server:
+Open an SSH client.
+Locate your private key file. The key used to launch this instance is team2.pem
+Run this command, if necessary, to ensure your key is not publicly viewable.
+
+ chmod 400 team2.pem
+Connect to your instance using its Public DNS:
+
+ ec2-35-163-149-5.us-west-2.compute.amazonaws.com
+Example:
+
+ssh -i "team2.pem" ubuntu@ec2-35-163-149-5.us-west-2.compute.amazonaws.com
 
 # Most important things to Remember
 ## These values need to kept update to date throughout the semester. <br>
