@@ -8,9 +8,7 @@ const db = require('../dbConnection');
  */
 const searchPostsByCategory = (searchKey, Category=null) => {
     const client = db.client()
-    var promiseObject;
-    if (Category=="category"){
-        promiseObject = client.query("SELECT title, description, image, instructor, course, price FROM dev.Posts WHERE `approval_flag`=1 AND (`title` LIKE '%" + searchKey + "%' OR `description` LIKE '%" + searchKey + "%') ORDER BY visits DESC limit 20;")
+    const promiseObject = client.query("SELECT title, description, image, instructor, course, price FROM dev.Posts  JOIN dev.Categories on dev.Posts.`category_id`= dev.Categories.`ID` WHERE `approval_flag`=1 AND `Category` LIKE '%"+Category+"%' AND (`title` LIKE '%" + searchKey + "%' OR `description` LIKE '%" + searchKey + "%') ORDER BY visits DESC limit 20;")
             .then(([results, fields]) => {        
                 return {
                     searchKey,
@@ -21,20 +19,7 @@ const searchPostsByCategory = (searchKey, Category=null) => {
                 if (err) throw err
                 res.status(500).send(err)
             });
-    }
-    else{
-        promiseObject = client.query("SELECT title, description, image, instructor, course, price FROM dev.Posts  JOIN dev.Categories on dev.Posts.`category_id`= dev.Categories.`ID` WHERE `approval_flag`=1 AND `Category` LIKE '%"+Category+"%' AND (`title` LIKE '%" + searchKey + "%' OR `description` LIKE '%" + searchKey + "%') ORDER BY visits DESC limit 20;")
-            .then(([results, fields]) => {        
-                return {
-                    searchKey,
-                    results
-                }
-            })
-            .catch((err) => {
-                if (err) throw err
-                res.status(500).send(err)
-            });
-    }
+
     return promiseObject;
 }
 
