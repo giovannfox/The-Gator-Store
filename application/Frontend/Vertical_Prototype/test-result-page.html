@@ -40,28 +40,27 @@
       </div>
 
       
-      <!-- <div class="wrapper">
-        <form method="get" name="search" action="/search.html">
-        <div class="search_box">
-            <div class="dropdown">
-                <div class="default_option">Categories</div>  
-                <ul>
-                  <li>All</li>
-                  <li>Books</li>
-                  <li>Electronics</li>
-                  <li>Furniture</li>
-                  <li>Clothing</li>
-                  <li>Supplies</li>
-                  <li>Household</li>
-                </ul>
-            </div>
-            <div class="search_field">
-              <input id="search" type="text" class="input" placeholder="Search" method="get" name="search" action="search.html">
-              <i class="fas fa-search"></i>
-          </div>
-        </div>
-    </form>
-    </div> -->
+       <div class="wrapper">
+           <form method="get" name="search" action="/test-result-page.html">
+               <div class="search_box">
+                   <div class="dropdown">
+                       <div class="default_option">Categories</div>
+                       <ul>
+                           <li>Books</li>
+                           <li>Electronics</li>
+                           <li>Furniture</li>
+                           <li>Clothing</li>
+                           <li>Supplies</li>
+                           <li>Household</li>
+                       </ul>
+                   </div>
+                   <div class="search_field">
+                       <input id="search" type="text" class="input" placeholder="Search" name="searchKey">
+                       <i class="fas fa-search"></i>
+                   </div>
+               </div>
+           </form>
+    </div>
         
       <h3>Search Results</h3>
       <div id="container">
@@ -74,8 +73,9 @@
                   console.log(url.searchParams.get("searchKey"));
 
 
-              let response = await fetch('http://localhost:3000/search/results/'+ url.searchParams.get("searchKey"));
+                  let response = await fetch('http://localhost:3000/search/results?searchKey='+ url.searchParams.get("searchKey"));
 
+              //let response = await fetch('http://35.163.149.5:3000/search/results'+ url.searchParams.get("searchKey"));
 
                 const searchResult = await response.json(); // read response body as text
                 
