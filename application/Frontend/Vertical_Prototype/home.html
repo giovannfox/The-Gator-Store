@@ -40,24 +40,27 @@
 
 <div class="wrapper">
     <form method="get" name="search" action="/test-result-page.html">
-    <div class="search_box">
-        <div class="dropdown">
-            <div class="default_option">Categories</div>  
-            <ul>
-              <li>Books</li>
-              <li>Electronics</li>
-              <li>Furniture</li>
-              <li>Clothing</li>
-              <li>Supplies</li>
-              <li>Household</li>
-            </ul>
-        </div>
+        <div class="search_box">
+            <div class="dropdown">
+            <!-- <div class="default_option">Categories</div>   -->
+                <select class="form-control selectWidth" id="selectionType" name="categoryKey">
+                    <option value = "">Categories</option> 
+                    <option value="books">Books</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="furniture">Furniture</option>
+                    <option value="clothings">Clothing</option>
+                    <option value="supplies">Supplies</option>
+                     <option value="household">Household</option>
+                </select>
+            </div>
         <div class="search_field">
           <input id="search" type="text" class="input" placeholder="Search" name="searchKey">
-          <i class="fas fa-search"></i>
-      </div>
-    </div>
-</form>
+          <button type="submit" class="searchButton">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        </div>
+    </form>
 </div>
 
 </body>

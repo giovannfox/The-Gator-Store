@@ -9,7 +9,7 @@ const connect = async () => {
             port: "3306",
             database: "dev",
             user: "dev",
-            password: "Development1!"
+            password: "sYYRyoOuk0Et%3&"
         });
 
         dbClient = pool.promise();
