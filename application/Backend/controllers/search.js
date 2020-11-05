@@ -7,11 +7,12 @@ router.get('/', (_req, res) => res.redirect('/test-result-page.html'));
 
 router.get('/results', async (req, res) => {
     const searchedPosts = await posts.searchPostsByCategory(req.params.searchKey);
-
+    console.log("searchedPosts: ", searchedPosts);
     if (searchedPosts.results.length > 0)
         return res.status(200).json(searchedPosts);
 
     const randomApprovedPosts = await posts.getPosts();
+    console.log("randomApprovedPosts: ", randomApprovedPosts);
     return res.status(200).json(randomApprovedPosts);
 });
 

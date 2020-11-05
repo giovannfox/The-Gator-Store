@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2cf39eef-8043-4f9f-9ec6-5b8430a8c0b9" name="Default Changelist" comment="added multer, multer s3, added image upload (needs work)">
+      <change beforePath="$PROJECT_DIR$/application/Backend/controllers/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/Backend/controllers/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/Backend/dbConnection.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/Backend/dbConnection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/Backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/Backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/Backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/Backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/Frontend/Vertical_Prototype/test-result-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/Frontend/Vertical_Prototype/test-result-page.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1iKfRUY3Ijr6lHW4X3BTmZM6afA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2cf39eef-8043-4f9f-9ec6-5b8430a8c0b9" name="Default Changelist" comment="" />
+      <created>1601661195395</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601661195395</updated>
+      <workItem from="1601661200558" duration="9353000" />
+      <workItem from="1603313370813" duration="9000" />
+      <workItem from="1603313393796" duration="13000" />
+      <workItem from="1603313422438" duration="16942000" />
+      <workItem from="1603994440044" duration="1186000" />
+      <workItem from="1604610333265" duration="738000" />
+    </task>
+    <task id="LOCAL-00001" summary="updated test-result-page.html">
+      <created>1603654720922</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603654720922</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fixed to display search results when no parameters">
+      <created>1603656953078</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603656953078</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added multer, multer s3, added image upload (needs work)">
+      <created>1603678341023</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603678341023</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updated test-result-page.html" />
+    <MESSAGE value="fixed to display search results when no parameters" />
+    <MESSAGE value="added multer, multer s3, added image upload (needs work)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added multer, multer s3, added image upload (needs work)" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1603409027558">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1603409027558" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1603409027557">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1603409027557" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1603409027556">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1603409027556" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1603409027557">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1603409027557" />
+    <state x="208" y="31" key="SettingsEditor" timestamp="1603310971331">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="208" y="31" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1603310971331" />
+    <state x="508" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603654646319">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="508" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1603654646319" />
+    <state x="463" y="170" key="git4idea.branch.GitSmartOperationDialog" timestamp="1603678300524">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="463" y="170" key="git4idea.branch.GitSmartOperationDialog/0.0.1440.900@0.0.1440.900" timestamp="1603678300524" />
+    <state x="88" y="72" key="new project wizard" timestamp="1602630333566">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="88" y="72" key="new project wizard/0.0.1440.900@0.0.1440.900" timestamp="1602630333566" />
+    <state x="385" y="210" key="run.anything.popup" timestamp="1603310975268">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="210" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1603310975268" />
+  </component>
+</project>
