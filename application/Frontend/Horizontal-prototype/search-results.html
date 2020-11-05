@@ -24,23 +24,27 @@
       <!-- fixed top navbar -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">The Gator Store</a> <!-- need to link homepage as href to this -->
-                 
-        <!-- dropdown category selection -->
-        <div class="input-group-prepend">
-            <select class="selectpicker" data-style="btn-outline-success" data-width="fit">
-                <option>All</option> 
-                <option>Books</option> 
-                <option>Clothing</option> 
-                <option>Electronics</option>
-                <option>Furniture</option> 
-                <option>Household</option> 
-                <option>Supplies</option> 
-            </select> 
-        </div>
-        <!-- search bar -->
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" maxlength="40">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            
+        <form method="get" name="search" action="/search-results.html">
+                  
+            <!-- dropdown category selection -->
+            <div class="input-group-prepend">
+                <select class="form-control selectpicker" id="selectionType" name="categoryKey" data-style="btn-outline-success" data-width="fit">
+                    <option value = "">All Categories</option> 
+                    <option value="books">Books</option> 
+                    <option value="clothings">Clothing</option> 
+                    <option value="electronics">Electronics</option>
+                    <option value="furniture">Furniture</option> 
+                    <option value="household">Household</option> 
+                    <option value="supplies">Supplies</option> 
+                </select> 
+            </div>
+            <!-- search bar -->
+            <div class="form-inline my-2 my-lg-0">
+                <input id="search" class="input form-control mr-sm-2" type="text" placeholder="Search" name="searchKey" aria-label="Search" maxlength="40">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </div>
+          
         </form>
 
         <!-- navbar collapse -->
