@@ -6,6 +6,11 @@ const search = require('./controllers/search.js');
 var morgan = require('morgan');
 const PORT = 3000;
 
+//var aws = require('aws-sdk')
+//var multer = require('multer')
+//var multerS3 = require('multer-s3')
+
+
 db.connect()
 
 /* General routes */
@@ -29,3 +34,17 @@ app.route('/')
 app.listen(PORT, async () => {
     console.log("Listening now on port " + PORT);
 });
+
+
+
+//var s3 = new aws.S3({ /* ... */ })
+/*
+var s3 = new aws.S3({ /* ...  })*/
+
+
+/*
+app.post('/upload', upload.array('photos', 3), function(req, res, next) {
+    res.send('Successfully uploaded ' + req.files.length + ' files!')
+})
+*/
+

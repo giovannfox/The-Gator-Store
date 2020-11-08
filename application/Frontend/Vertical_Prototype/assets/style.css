@@ -24,7 +24,7 @@ body{
   width: 600px;
   background: #fff;
   border-radius: 5px;
-  height: 65px;
+  height: 60px;
   display: flex;
   padding: 10px;
   box-shadow: 0 8px 6px -10px #b3c6ff;
@@ -44,7 +44,7 @@ body{
   font-size: 14px;
 }
 
-.wrapper .search_box .dropdown ul{
+.wrapper .search_box .dropdown option{
   position: absolute;
   top: 70px;
   left: -10px;
@@ -56,19 +56,19 @@ body{
   box-shadow: 8px 8px 6px -10px #b3c6ff;
 }
 
-.wrapper .search_box .dropdown ul.active{
+.wrapper .search_box .dropdown option.active{
   display: block;
 }
 
-.wrapper .search_box .dropdown ul li{
+.wrapper .search_box .dropdown option{
   padding-bottom: 20px;
 }
 
-.wrapper .search_box .dropdown ul li:last-child{
+.wrapper .search_box .dropdown option:last-child{
   padding-bottom: 0;
 }
 
-.wrapper .search_box .dropdown ul li:hover{
+.wrapper .search_box .dropdown option:hover{
   color: #6f768d;
 }
 
@@ -77,8 +77,8 @@ body{
   position: absolute;
   top: 16px;
   right: 18px;
-  border: 8px solid;
-  border-color: #6f768d transparent transparent transparent;
+  /* border: 8px solid; */
+  /* border-color: #6f768d transparent transparent transparent; */
 }
 
 .wrapper .search_box .search_field{
@@ -97,14 +97,27 @@ body{
   color: #6f768d;
 }
 
-.wrapper .search_box .search_field .fas{
+/* .wrapper .search_box .search_field .fas{
   position: absolute;
   top: 10px;
   right: -70px;
   font-size: 22px;
   color: #6f768d;
   cursor: pointer;
-}
+} */
+
+ .searchButton {
+    position: absolute;
+    top: -10px;
+    right: -90px;
+    width: 40px;
+    height: 60px;
+    border: 2px;
+    color: #6f768d;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #9fa3b1;
@@ -115,4 +128,6 @@ body{
 :-ms-input-placeholder { /* IE 10+ */
   color: #9fa3b1;
 }
+
+
 
