@@ -1,133 +1,113 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  list-style: none;
-  font-family: 'Montserrat', sans-serif;
+
+body {
+	padding-top: 56px;
+ }
+ .container{
+    
+    padding: 120px 20px;
+    /* margin-left: 50px; */
+	/* margin: 30px auto 50px;
+	max-width: 1250px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	background-color: #fff;
+	box-shadow: 0 0 1px #ccc; */
 }
+ .navbar-form {
+	 -webkit-flex-basis: 100%;
+	 -moz-flex-basis: 100%;
+	 -ms-flex-basis: 100%;
+	 -o-flex-basis: 100%;
+	 flex-basis: -moz-available;
+     flex-basis: 100%;	
+ }
 
-body{
-  background: #E8E8E8;
-}
+ /* .input-group-search {
+    left: -150px;
+	
+ } */
 
-.wrapper{
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
 
-.wrapper .search_box{
-  width: 600px;
-  background: #fff;
-  border-radius: 5px;
-  height: 60px;
-  display: flex;
-  padding: 10px;
-  box-shadow: 0 8px 6px -10px #b3c6ff;
-}
+ .border { 
+    display: inline-block; 
+    width: 120px; 
+    height: 120px; 
+    margin: 15px; 
+    
+} 
 
-.wrapper .search_box .dropdown{
-  width: 150px;
-  border-right: 2px solid #dde2f1;
-  color: #9fa3b1;
-  position: relative;
-  cursor: pointer;
-}
-
-.wrapper .search_box .dropdown .default_option{
-  text-transform: uppercase;
-  padding: 13px 15px;
-  font-size: 14px;
-}
-
-.wrapper .search_box .dropdown option{
-  position: absolute;
-  top: 70px;
-  left: -10px;
-  background: #fff;
-  width: 150px;
-  border-radius: 5px;
-  padding: 20px;
-  display: none;
-  box-shadow: 8px 8px 6px -10px #b3c6ff;
-}
-
-.wrapper .search_box .dropdown option.active{
-  display: block;
-}
-
-.wrapper .search_box .dropdown option{
-  padding-bottom: 20px;
-}
-
-.wrapper .search_box .dropdown option:last-child{
-  padding-bottom: 0;
-}
-
-.wrapper .search_box .dropdown option:hover{
-  color: #6f768d;
-}
-
-.wrapper .search_box .dropdown:before{
-  content: "";
-  position: absolute;
-  top: 16px;
-  right: 18px;
-  /* border: 8px solid; */
-  /* border-color: #6f768d transparent transparent transparent; */
-}
-
-.wrapper .search_box .search_field{
-  width: 350px;
-  height: 100%;
-  position: relative;
-}
-
-.wrapper .search_box .search_field .input{
-  width: 100%;
-  height: 100%;
-  border: 0px;
-  font-size: 16px;
-  padding-left: 20px;
-  padding-right: 38px;
-  color: #6f768d;
-}
-
-/* .wrapper .search_box .search_field .fas{
-  position: absolute;
-  top: 10px;
-  right: -70px;
-  font-size: 22px;
-  color: #6f768d;
-  cursor: pointer;
+/* #category-links{
+margin-left: 80px;
 } */
 
- .searchButton {
-    position: absolute;
-    top: -10px;
-    right: -90px;
-    width: 40px;
-    height: 60px;
-    border: 2px;
-    color: #6f768d;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-size: 20px;
-  }
+ /* .navbar-nav{
+    margin-left: -140px;
+ } */
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #9fa3b1;
-}
-::-moz-placeholder { /* Firefox 19+ */
- color: #9fa3b1;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: #9fa3b1;
+ #search-button-addon{
+     height: 40px;
+     width: 40px;;
+     margin-top: -1px;
+ }
+
+ option{
+     margin-right: 10px;;
+     margin-top: -1px;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
+a{
+	text-decoration: none;
+}
 
+a:hover{
+	text-decoration: underline;
+}
+
+
+html{
+	font: normal 16px sans-serif;
+	color: #333;
+	background-color: #f9f9f9;
+}
+
+@media(min-width:576px) {
+    .navbar-expand-sm .input-group-search {
+       width: 20% !important; 
+    }
+}
+@media(min-width:768px) {
+    .navbar-expand-md .input-group-search {
+       width: 40% !important; 
+    }
+}
+@media(min-width:992px) {
+    .navbar-expand-lg .input-group-search {
+       width: 40% !important; 
+    }
+    /*body {
+       padding-top: 110px;
+    }*/
+}
+@media(min-width:1200px) {
+    .navbar-expand-xl .input-group-search {
+       width: 40% !important; 
+    }
+}
+ 
+@media(max-width: 1250px){
+
+	.container{
+		justify-content: center;
+		margin: 30px 30px 50px 30px;
+    }
+    .input-group-search {
+        width: 300px;;
+    }
+
+}
 
