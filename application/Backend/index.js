@@ -39,7 +39,7 @@ app.listen(PORT, async () => {
 
 //var s3 = new aws.S3({ /* ... */ })
 /*
-var s3 = new aws.S3({ /* ... */ //})
+var s3 = new aws.S3({ /* ...  })*/
 
 
 /*
