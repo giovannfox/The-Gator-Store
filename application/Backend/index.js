@@ -8,6 +8,7 @@ const path = require('path');
 const db = require('./dbConnection');
 const app = express();
 const search = require('./controllers/search.js');
+const post = require('./controllers/posts.js');
 var morgan = require('morgan');
 const PORT = 3000;
 
@@ -25,6 +26,7 @@ app.use(morgan("dev"));
 app.use('/', express.static(path.join(__dirname, "./../Frontend/Vertical_Prototype/")));
 app.use('/about', express.static(path.join(__dirname, "./../Frontend/About-individual-pages")));
 app.use('/search', search);
+app.use('/post', post);
 
 /**
  * is this still needed?

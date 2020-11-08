@@ -4,7 +4,7 @@
 
 var express = require('express');
 var router = express.Router()
-const posts = require('../models/posts');
+const posts = require('../models/post');
 
 /**
  * Root route that will used for redirecting to results page
