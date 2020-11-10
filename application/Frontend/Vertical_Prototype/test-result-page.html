@@ -85,6 +85,7 @@
 
                 searchResult.results.forEach(item => {
                   document.getElementById('result').innerHTML +=
+                  '<div class="col mb-4">' +
                     '<div class="card" style="width: 18rem;">' + 
                       '<img class="card-img-top" src="' + item.image + '" alt="' + item.title + '">' +
                       '<div class="card-body">' +
@@ -94,6 +95,8 @@
                         '<a href="#" class="btn btn-primary">See more details</a>' +
                       '</div>' +
                     '</div>'
+                    '</div>' +
+                  '</div>'
                 }); 
               
             });
