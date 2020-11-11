@@ -11,7 +11,6 @@ const posts = require('../models/post');
  */
 router.get('/', (_req, res) => res.redirect('/test-result-page.html'));
 
-
 /**
  * Route used for getting the results based on category and search key.
  */
