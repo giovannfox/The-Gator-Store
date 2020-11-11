@@ -23,8 +23,8 @@ db.connect();
 app.use(morgan("dev"));
 
 /* Main router to controllers */
-app.use('/', express.static(path.join(__dirname, "./../Frontend/Vertical_Prototype/")));
-app.use('/about', express.static(path.join(__dirname, "./../Frontend/About-individual-pages")));
+app.use('/', express.static(path.join(__dirname, "./../Frontend/Horizontal_Prototype/")));
+app.use('/about', express.static(path.join(__dirname, "./../Frontend/About-individual-pages/")));
 app.use('/search', search);
 app.use('/post', post);
 
