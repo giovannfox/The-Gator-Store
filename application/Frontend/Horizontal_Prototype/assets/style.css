@@ -1,0 +1,184 @@
+
+
+body {
+	padding-top: 56px;
+ }
+ .container{
+    
+    padding: 120px 20px;
+    /* margin-left: 50px; */
+	/* margin: 30px auto 50px;
+	max-width: 1250px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	background-color: #fff;
+	box-shadow: 0 0 1px #ccc; */
+}
+ .navbar-form {
+	 -webkit-flex-basis: 100%;
+	 -moz-flex-basis: 100%;
+	 -ms-flex-basis: 100%;
+	 -o-flex-basis: 100%;
+	 flex-basis: -moz-available;
+     flex-basis: 100%;	
+ }
+
+ /* .input-group-search {
+    left: -150px;
+	
+ } */
+
+
+ .border { 
+    display: inline-block; 
+    width: 170px; 
+    height: 170px; 
+    margin: 90px; 
+    margin-top: 40px;
+    
+} 
+
+#category-title{
+    text-align:center;
+    margin-top: 40px;
+    color:#808080
+}
+
+hr {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    height: 5px;
+    background-color:#696969; 
+    opacity: 0.5;}
+/* #category-links{
+margin-left: 80px;
+} */
+
+ /* .navbar-nav{
+    margin-left: -140px;
+ } */
+
+ #search-button-addon{
+     height: 40px;
+     width: 40px;;
+     margin-top: -1px;
+ }
+
+ option{
+    display: inline-block;
+    height: 134px;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    width: 104px;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+
+html{
+	font: normal 16px sans-serif;
+	color: #333;
+	background-color: #f9f9f9;
+}
+#bg-text {
+    color: black;
+    font-weight: bold;
+    position: absolute;
+    top: 640px;
+    left: 45%;
+    transform: translate(-50%, -50%);
+  }
+
+#category-eletronic{
+    height: 168px;  
+    width: 168px;
+    background-image:url(eletronic.jpg);
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+#category-books{
+    height: 168px;  
+    width: 168px;
+    background-image:url(books.jpg);
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+#category-furniture{
+    height: 168px;  
+    width: 168px;
+    background-image:url(furniture.jpg);
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+#category-clothings{
+    height: 168px;  
+    width: 168px;
+    background-image:url(clothings.jpg);
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+#category-supplies{
+    height: 168px;  
+    width: 168px;
+    background-image:url(supplies.jpg);
+    position: absolute;
+    background-repeat: no-repeat;
+}
+#category-household{
+    height: 168px;  
+    width: 168px;
+    background-image:url(household.jpg);
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+@media(min-width:576px) {
+    .navbar-expand-sm .input-group-search {
+       width: 20% !important; 
+    }
+}
+@media(min-width:768px) {
+    .navbar-expand-md .input-group-search {
+       width: 40% !important; 
+    }
+}
+@media(min-width:992px) {
+    .navbar-expand-lg .input-group-search {
+       width: 40% !important; 
+    }
+    /*body {
+       padding-top: 110px;
+    }*/
+}
+@media(min-width:1200px) {
+    .navbar-expand-xl .input-group-search {
+       width: 40% !important; 
+    }
+}
+ 
+@media(max-width: 1250px){
+
+	.container{
+		justify-content: center;
+		margin: 30px 30px 50px 30px;
+    }
+    .input-group-search {
+        width: 300px;;
+    }
+
+}
+

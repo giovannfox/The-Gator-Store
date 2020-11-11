@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <!-- Bootstrap CSS file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <!-- Main Stylesheet File -->
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://mdbootstrap.com/previews/docs/latest/js/bootstrap.min.js"></script>
+    <script src="https://mdbootstrap.com/previews/docs/latest/js/mdb.min.js"></script>
+    <script src="https://mdbootstrap.com/previews/docs/latest/js/jarallax.js"></script>
+    <script src="https://mdbootstrap.com/previews/docs/latest/js/jarallax-video.js"></script>
+
+    <script>
+
+        function letternumber(e){
+        
+        var key;
+        var keychar;
+
+        if (window.event)
+            key = window.event.keyCode;
+        else if (e)
+            key = e.which;
+        else
+            return true;
+        keychar = String.fromCharCode(key);
+        keychar = keychar.toLowerCase();
+
+        // control keys
+        if ((key==null) || (key==0) || (key==8) || 
+            (key==9) || (key==13) || (key==27) )
+            return true;
+
+        // alphas and numbers
+        else if ((("abcdefghijklmnopqrstuvwxyz0123456789").indexOf(keychar) > -1))
+            return true;
+        else
+            return false;
+}
+    </script>
+
+   
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="/"><img src="assets/logo2.png" width="120" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <form class="form-inline my-2 my-lg-0 navbar-form" method="get" name="search" action="/test-result-page.html">
+           <div class="input-group input-group-search mx-auto">
+              <div class="input-group-prepend">
+                
+                 <select class="form-control selectWidth"  id="selectionType" name="categoryKey">
+                    <option>Categories</option> 
+                    <option  value="books">Books</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="furniture">Furniture</option>
+                    <option value="clothings">Clothing</option>
+                    <option value="supplies">Supplies</option>
+                     <option value="household">Household</option>
+                 </select>
+              </div>
+                <input type="search" id="search_bar" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="search-button-addon" maxlength="40"  onKeyPress="return letternumber(event)" name="searchKey">
+              <div class="input-group-append">
+                 <button class=" btn-grey" type="submit" id="search-button-addon">&#128269;</button>
+              </div>
+           </div>
+        </form>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav">
+              <li class="nav-item">
+                 <a class="nav-link text-light" href="../About-individual-pages/about.html">About</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link text-nowrap" href="#">Post</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link text-nowrap" href="#">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-nowrap" href="#">Sign up</a>
+             </li>
+           </ul>
+        </div>
+     </nav>
+
+     <div class="view hm-white-light jarallax"   data-jarallax='{"videoEndTime": 26}' data-jarallax-video="https://www.youtube.com/watch?v=TWc3u5njBio">
+        <div class="full-bg-img">
+            <div class="container flex-center">
+                <div class="row">
+                    <div class="col-md-12 wow fadeIn">
+                        <div class="text-center text-light">
+                            <h1 class="display-2 mb-2 wow fadeInDown" data-wow-delay="0.3s">The Gator Store<img src="assets/gator1.png" width="140" alt="logo"></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Category-header">
+        <h2 id="category-title">Categories</h2>
+        <hr>
+    </div>
+    <div class="container" id="category-links"> 
+        <span class="border border-dark"> 
+            <a id='category-books' class="nav-link text-nowrap" href="/books.html"></a> 
+        </span> 
+        <span class="border border-dark"> 
+            <a id='category-eletronic' class="nav-link text-nowrap" href="/eletronic.html"></a> 
+        </span> 
+        <span class="border border-dark"> 
+            <a id='category-furniture' class="nav-link text-nowrap" href="/furniture.html"></a> 
+        </span> 
+        <span class="border border-dark">  
+            <a id='category-clothings' class="nav-link text-nowrap" href="/clothings.html"></a> 
+        </span> 
+        <span class="border border-dark">  
+            <a id='category-supplies' class="nav-link text-nowrap" href="/supplies.html"></a> 
+        </span> 
+        <span class="border border-dark"> 
+            <a id='category-household' class="nav-link text-nowrap" href="/household.html"></a>  
+        </span> 
+    </div> 
+
+   <script>
+       new WOW().init();
+ // When the DOM is ready, run this function
+  $(document).ready(function() {
+  //Set the carousel options
+  $('#quote-carousel').carousel({
+    pause: true,
+    interval: 4000,
+  });
+});
+   </script>
+  </body>
+</html>
