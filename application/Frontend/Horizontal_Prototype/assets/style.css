@@ -34,10 +34,25 @@ body {
     display: inline-block; 
     width: 170px; 
     height: 170px; 
-    margin: 70px; 
+    margin: 90px; 
+    margin-top: 40px;
     
 } 
 
+#category-title{
+    text-align:center;
+    margin-top: 40px;
+    color:#808080
+}
+
+hr {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    height: 5px;
+    background-color:#696969; 
+    opacity: 0.5;}
 /* #category-links{
 margin-left: 80px;
 } */
