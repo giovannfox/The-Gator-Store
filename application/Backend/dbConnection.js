@@ -1,3 +1,8 @@
+/**
+ * This file contains the connection params 
+ * and db query pool that will be used throughout the app.
+ */
+
 const mysql = require('mysql2');
 
 var dbClient = null;
@@ -9,7 +14,7 @@ const connect = async () => {
             port: "3306",
             database: "dev",
             user: "dev",
-            password: "Development1!"
+            password: "sYYRyoOuk0Et%3&"
         });
 
         dbClient = pool.promise();

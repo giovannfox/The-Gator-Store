@@ -74,8 +74,11 @@
 
 
                  // let response = await fetch('http://localhost:3000/search/results?searchKey='+ url.searchParams.get("searchKey"));
+                  
+                  let response = await fetch('http://localhost:3000/search/results?categoryKey='+url.searchParams.get("categoryKey")+'&searchKey='+ url.searchParams.get("searchKey"));
 
-              let response = await fetch('http://35.163.149.5:3000/search/results?searchKey='+ url.searchParams.get("searchKey"));
+                  // old url
+           //   let response = await fetch('http://35.163.149.5:3000/search/results?searchKey='+ url.searchParams.get("searchKey"));
 
                 const searchResult = await response.json(); // read response body as text
                 
@@ -83,6 +86,7 @@
 
                 searchResult.results.forEach(item => {
                   document.getElementById('result').innerHTML +=
+                  '<div class="col mb-4">' +
                     '<div class="card" style="width: 18rem;">' + 
                       '<img class="card-img-top" src="' + item.image + '" alt="' + item.title + '">' +
                       '<div class="card-body">' +
@@ -91,7 +95,8 @@
                         '<p class="card-text">' + item.description + '</p>' +
                         '<a href="#" class="btn btn-primary">See more details</a>' +
                       '</div>' +
-                    '</div>'
+                    '</div>' +
+                  '</div>'
                 }); 
               
             });
