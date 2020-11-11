@@ -15,7 +15,7 @@ router.get('/', (_req, res) => res.redirect('/test-result-page.html'));
  * Route used for getting the results based on category and search key.
  */
 router.get('/results', async (req, res) => {
-    const searchedPosts = await posts.searchPostsByCategory(req.query.searchKey,req.query.categoryKey);
+    const searchedPosts = await posts.searchPostsByCategory(req.query.searchKey, req.query.categoryKey);
     if (searchedPosts.results.length > 0)
         return res.status(200).json(searchedPosts);
 
