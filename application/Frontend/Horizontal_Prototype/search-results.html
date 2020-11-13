@@ -25,7 +25,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">The Gator Store</a> <!-- need to link homepage as href to this -->
 
-        <form name="search" action="handleSubmit">
+        <form name="search" >
                   
             <!-- dropdown category selection -->
             <div class="input-group-prepend">
@@ -185,40 +185,6 @@
             </div>
           </div>
         </div> -->
-
-        <script>
-            $(document).ready(
-              async function() {
-                const url = new URL(window.location.href);
-                console.log(url.searchParams.get("searchKey"));
-
-
-                // let response = await fetch('http://localhost:3000/search/results?categoryKey='+url.searchParams.get("categoryKey")+'&searchKey='+ url.searchParams.get("searchKey"));
-
-                let response = await fetch('http://35.163.149.5:3000/search/results?categoryKey='+url.searchParams.get("categoryKey")+'&searchKey='+ url.searchParams.get("searchKey"));
-
-              const searchResult = await response.json(); // read response body as text
-              
-              console.log(searchResult.results.foreach);
-
-              searchResult.results.forEach(item => {
-                document.getElementById('result').innerHTML +=
-                  '<div class="col mb-4">' +
-                    '<div class="card" style="width: 18rem;">' + 
-                      '<img class="card-img-top" src="' + item.image + '" alt="' + item.title + '">' +
-                      '<div class="card-body">' +
-                        '<h3 class="card-title">' + item.title + '</h3>' +
-                        '<p class="card-text">Instructor: ' + item.instructor + '<br>Course: ' + item.course + '<br>$' + item.price + '</p>' +
-                        '<a href="#" class="btn btn-primary">See more details</a>' +
-                      '</div>' +
-                    '</div>' +
-                  '</div>'
-              }); 
-            
-          });
-
-        </script>
-
       </div>
       
 
@@ -237,6 +203,41 @@
             </li>
         </ul>
       </nav>
+        <script>
+          
+          $("div[id='result'").ready((e) => {
+            handleSubmit(e)
+          });
+
+          async function handleSubmit(e) {
+                // e.preventDefault()
+                const url = new URL(window.location.href);
+                console.log(url.searchParams.get("searchKey"));
+                $('#search').val(url.searchParams.get("searchKey"));
+
+
+                let response = await fetch('http://localhost:3000/search/results?categoryKey='+url.searchParams.get("categoryKey")+'&searchKey='+ url.searchParams.get("searchKey"));
+
+                // let response = await fetch('http://35.163.149.5:3000/search/results?categoryKey='+url.searchParams.get("categoryKey")+'&searchKey='+ url.searchParams.get("searchKey"));
+
+              const searchResult = await response.json(); // read response body as text
+
+              searchResult.results.forEach(item => {
+                document.getElementById('result').innerHTML +=
+                  '<div class="col mb-4">' +
+                    '<div class="card" style="width: 18rem;">' + 
+                      '<img class="card-img-top" src="' + item.image + '" alt="' + item.title + '">' +
+                      '<div class="card-body">' +
+                        '<h3 class="card-title">' + item.title + '</h3>' +
+                        '<p class="card-text">Instructor: ' + item.instructor + '<br>Course: ' + item.course + '<br>$' + item.price + '</p>' +
+                        '<a href="#" class="btn btn-primary">See more details</a>' +
+                      '</div>' +
+                    '</div>' +
+                  '</div>'
+              }); 
+            
+          }
+        </script>
 
     </body>
 
