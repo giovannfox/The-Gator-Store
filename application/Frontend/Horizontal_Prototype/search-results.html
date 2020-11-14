@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Search Results</title> 
+        <meta charset="UTF-8">
+    
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- bootstrap-select CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> 
+    
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- bootstrap-select stylesheet -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css"> 
+        
+    </head>
+
+    <body>
+      <!-- fixed top navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">The Gator Store</a> <!-- need to link homepage as href to this -->
+
+        <form name="search" >
+                  
+            <!-- dropdown category selection -->
+            <div class="input-group-prepend">
+                <select class="form-control selectpicker" id="selectionType" name="categoryKey" data-style="btn-outline-success" data-width="fit">
+                    <option value = "">All Categories</option> 
+                    <option value="books">Books</option> 
+                    <option value="clothings">Clothing</option> 
+                    <option value="electronics">Electronics</option>
+                    <option value="furniture">Furniture</option> 
+                    <option value="household">Household</option> 
+                    <option value="supplies">Supplies</option> 
+                </select> 
+            </div>
+            <!-- search bar -->
+            <div class="form-inline my-2 my-lg-0">
+                <input id="search" class="input form-control mr-sm-2" type="text" placeholder="Search" name="searchKey" aria-label="Search" maxlength="40">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </div>
+          
+        </form>
+
+        <!-- navbar collapse -->
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        
+        <div class="ml-auto">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <!-- nav links -->
+              <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sell</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Account
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Dashboard</a>
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Logout</a>
+                  </div>
+              </li>
+              
+              </ul>
+              
+          </div>
+        </div>
+
+      </nav>
+      
+      <h2 class="py-3 text-center">Search Results</h2>
+
+      <!-- display results of search -->
+      <div id="result" class="row row-cols-1 row-cols-md-2 p-2">
+        <!-- 8 test cards -->
+        <!-- <div class="col mb-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="" alt="nothing">
+            <div class="card-body">
+              <h3 class="card-title">Test Card 1</h3>
+              <p class="card-text">Instructor: <br>Course: <br>$</p>
+              <p class="card-text">This is a test card for the search results page</p>
+              <a href="#" class="btn btn-primary">See more details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="" alt="nothing">
+            <div class="card-body">
+              <h3 class="card-title">Test Card 2</h3>
+              <p class="card-text">Instructor: <br>Course: <br>$</p>
+              <p class="card-text">This is a test card for the search results page</p>
+              <a href="#" class="btn btn-primary">See more details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="" alt="nothing">
+            <div class="card-body">
+              <h3 class="card-title">Test Card 3</h3>
+              <p class="card-text">Instructor: <br>Course: <br>$</p>
+              <p class="card-text">This is a test card for the search results page</p>
+              <a href="#" class="btn btn-primary">See more details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="" alt="nothing">
+            <div class="card-body">
+              <h3 class="card-title">Test Card 4</h3>
+              <p class="card-text">Instructor: <br>Course: <br>$</p>
+              <p class="card-text">This is a test card for the search results page</p>
+              <a href="#" class="btn btn-primary">See more details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="" alt="nothing">
+            <div class="card-body">
+              <h3 class="card-title">Test Card 5</h3>
+              <p class="card-text">Instructor: <br>Course: <br>$</p>
+              <p class="card-text">This is a test card for the search results page</p>
+              <a href="#" class="btn btn-primary">See more details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="" alt="nothing">
+            <div class="card-body">
+              <h3 class="card-title">Test Card 6</h3>
+              <p class="card-text">Instructor: <br>Course: <br>$</p>
+              <p class="card-text">This is a test card for the search results page</p>
+              <a href="#" class="btn btn-primary">See more details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="" alt="nothing">
+            <div class="card-body">
+              <h3 class="card-title">Test Card 7</h3>
+              <p class="card-text">Instructor: <br>Course: <br>$</p>
+              <p class="card-text">This is a test card for the search results page</p>
+              <a href="#" class="btn btn-primary">See more details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="" alt="nothing">
+            <div class="card-body">
+              <h3 class="card-title">Test Card 8</h3>
+              <p class="card-text">Instructor: <br>Course: <br>$</p>
+              <p class="card-text">This is a test card for the search results page</p>
+              <a href="#" class="btn btn-primary">See more details</a>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      
+
+
+      <!-- bottom navbar -->
+      <nav class="navbar bottom navbar-expand-lg navbar-light bg-light justify-content-center">
+        <ul class="navbar-nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a> <!-- dummy link-->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Terms</a> <!-- dummy link-->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Privacy</a> <!-- dummy link-->
+            </li>
+        </ul>
+      </nav>
+        <script>
+          
+          $("div[id='result'").ready((e) => {
+            handleSubmit(e)
+          });
+
+          async function handleSubmit(e) {
+                // e.preventDefault()
+                const url = new URL(window.location.href);
+                console.log(url.searchParams.get("searchKey"));
+                $('#search').val(url.searchParams.get("searchKey"));
+
+
+                let response = await fetch('http://localhost:3000/search/results?categoryKey='+url.searchParams.get("categoryKey")+'&searchKey='+ url.searchParams.get("searchKey"));
+
+                // let response = await fetch('http://35.163.149.5:3000/search/results?categoryKey='+url.searchParams.get("categoryKey")+'&searchKey='+ url.searchParams.get("searchKey"));
+
+              const searchResult = await response.json(); // read response body as text
+
+              searchResult.results.forEach(item => {
+                document.getElementById('result').innerHTML +=
+                  '<div class="col mb-4">' +
+                    '<div class="card" style="width: 18rem;">' + 
+                      '<img class="card-img-top" src="' + item.image + '" alt="' + item.title + '">' +
+                      '<div class="card-body">' +
+                        '<h3 class="card-title">' + item.title + '</h3>' +
+                        '<p class="card-text">Instructor: ' + item.instructor + '<br>Course: ' + item.course + '<br>$' + item.price + '</p>' +
+                        '<a href="#" class="btn btn-primary">See more details</a>' +
+                      '</div>' +
+                    '</div>' +
+                  '</div>'
+              }); 
+            
+          }
+        </script>
+
+    </body>
+
+</html>
