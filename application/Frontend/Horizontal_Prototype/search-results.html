@@ -101,20 +101,38 @@
       <div id="result" class="row row-cols-1 row-cols-md-2 p-2">
         
 
+      <!-- bottom navbar -->
+      <nav class="navbar bottom navbar-expand-lg navbar-light bg-light justify-content-center">
+        <ul class="navbar-nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a> <!-- dummy link-->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Terms</a> <!-- dummy link-->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Privacy</a> <!-- dummy link-->
+            </li>
+        </ul>
+      </nav>
         <script>
-            $(document).ready(
-              async function() {
+          
+          $("div[id='result'").ready((e) => {
+            handleSubmit(e)
+          });
+
+          async function handleSubmit(e) {
+                // e.preventDefault()
                 const url = new URL(window.location.href);
                 console.log(url.searchParams.get("searchKey"));
+                $('#search').val(url.searchParams.get("searchKey"));
 
 
-                // let response = await fetch('http://localhost:3000/search/results?categoryKey='+url.searchParams.get("categoryKey")+'&searchKey='+ url.searchParams.get("searchKey"));
+                let response = await fetch('http://localhost:3000/search/results?categoryKey='+url.searchParams.get("categoryKey")+'&searchKey='+ url.searchParams.get("searchKey"));
 
-                let response = await fetch('http://35.163.149.5:3000/search/results?categoryKey='+url.searchParams.get("categoryKey")+'&searchKey='+ url.searchParams.get("searchKey"));
+                // let response = await fetch('http://35.163.149.5:3000/search/results?categoryKey='+url.searchParams.get("categoryKey")+'&searchKey='+ url.searchParams.get("searchKey"));
 
               const searchResult = await response.json(); // read response body as text
-              
-              console.log(searchResult.results.foreach);
 
               searchResult.results.forEach(item => {
                 document.getElementById('result').innerHTML +=
@@ -130,28 +148,8 @@
                   '</div>'
               }); 
             
-          });
-
+          }
         </script>
-
-      </div>
-      
-
-
-      <!-- bottom navbar -->
-      <nav class="navbar bottom navbar-expand-lg navbar-light bg-light justify-content-center">
-        <ul class="navbar-nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a> <!-- dummy link-->
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Terms</a> <!-- dummy link-->
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Privacy</a> <!-- dummy link-->
-            </li>
-        </ul>
-      </nav>
 
     </body>
 
