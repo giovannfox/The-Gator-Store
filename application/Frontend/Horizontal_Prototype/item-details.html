@@ -97,34 +97,34 @@
      </nav>
 
       <!-- item details -->
-      <div class="p-5">
+      <div id="result" class="p-5 result">
 
           <!-- item name -->
           <h1 class="mb-2">Item Name</h1>
-          <h3 class="my-2"><small>Seller name</small></h3>
+          <!-- <h3 class="my-2"><small>Seller name</small></h3> -->
         
           <!-- image and details row -->
           <div class="row">
 
               <!-- image column -->
-              <div class="col-md-7">
+              <div id="image" class="col-md-7">
                   <img class="img-fluid" src="http://placehold.it/450" alt="">
               </div>
               
               <!-- details & messaging column -->
               <div class="col-md-4">
-                  <p id="#" style="font-size:1.25em"> 
+                  <p style="font-size:1.25em"> 
                     <strong>Course: </strong>_
                   </p>
-                  <p id="#" style="font-size:1.25em">
+                  <p style="font-size:1.25em">
                     <strong>Instructor: </strong>_
                   </p>
-                  <p id="#" style="font-size:1.25em">
+                  <p style="font-size:1.25em">
                     <strong>Price: </strong>$_
                   </p>
                                   
                   <h5 class="my-3"><strong>Description</strong></h5>
-                  <p id="#">_</p>
+                  <p id="description">_</p>
 
                   <h5 class="my-3"><strong>Message seller</strong></h5>
                   <form>
@@ -154,6 +154,30 @@
           </ul>
       </nav>
 
+      <script>
+        // $("div[id='result'").ready((e) => {
+        //   postDetails(e)
+        // });        
+
+        const url = new URL('http://localhost:3000/post/1');
+
+        // var getPostId = function (url, index) {
+        //   return url.replace(/^https?:\/\//, '').split('/')[index];
+        // }
+        // getPostId("http://domain.com/a/b/c/d/e", 2);
+        
+        async function postDetails() {
+          
+          const response = await fetch(url);
+          const data = await response.json();
+
+          console.log(data);
+        
+        }
+
+        postDetails();
+
+      </script>
 
     </body>
 </html>
