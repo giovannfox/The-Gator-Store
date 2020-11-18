@@ -95,12 +95,10 @@
         </div>
      </nav>
       
-      <h2 class="p-5 text-center">Search Results</h2>
-
+      <h2 class="pt-5 text-center">Search Results</h2>
+      <div id="count" class="col m-3"></div>
       <!-- display results of search -->
-      <div id="result" class="row row-cols-1 row-cols-md-2 p-2">
-        
-
+      <div id="result" class="row row-cols-1 row-cols-md-2 p-2"></div>
       <!-- bottom navbar -->
       <nav class="navbar bottom navbar-expand-lg navbar-light bg-light justify-content-center">
         <ul class="navbar-nav justify-content-center">
@@ -134,7 +132,9 @@
 
               const searchResult = await response.json(); // read response body as text
 
+              var count = 0;
               searchResult.results.forEach(item => {
+                count++;
                 document.getElementById('result').innerHTML +=
                   '<div class="col mb-4">' +
                     '<div class="card" style="width: 18rem;">' + 
@@ -147,6 +147,9 @@
                     '</div>' +
                   '</div>'
               }); 
+
+              document.getElementById('count').innerHTML += 
+                'Number of results: ' + count;
             
           }
         </script>
