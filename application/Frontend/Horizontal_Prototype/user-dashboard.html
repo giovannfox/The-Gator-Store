@@ -20,6 +20,34 @@
         <!-- bootstrap-select stylesheet -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css"> 
         
+        <script>
+
+          function letternumber(e){
+          
+          var key;
+          var keychar;
+  
+          if (window.event)
+              key = window.event.keyCode;
+          else if (e)
+              key = e.which;
+          else
+              return true;
+          keychar = String.fromCharCode(key);
+          keychar = keychar.toLowerCase();
+  
+          // control keys
+          if ((key==null) || (key==0) || (key==8) || 
+              (key==9) || (key==13) || (key==27) )
+              return true;
+  
+          // alphas and numbers
+          else if ((("abcdefghijklmnopqrstuvwxyz0123456789").indexOf(keychar) > -1))
+              return true;
+          else
+              return false;
+          }
+      </script>
     </head>
 
     <body>
