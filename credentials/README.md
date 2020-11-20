@@ -17,7 +17,7 @@
     port: "3306",
     database: "dev",
 5. Database username: dev
-6. Database password: Development1!
+6. Database password: sYYRyoOuk0Et%3&
 7. Database name (basically the name that contains all your tables): dev
 8. Instructions on how to use the above information.
 To connect to the server:
