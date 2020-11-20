@@ -3,8 +3,8 @@
 body {
 	padding-top: 56px;
  }
+ 
  .container{
-    
     padding: 120px 20px;
     /* margin-left: 50px; */
 	/* margin: 30px auto 50px;
@@ -15,6 +15,11 @@ body {
 	background-color: #fff;
 	box-shadow: 0 0 1px #ccc; */
 }
+
+.container3{
+    padding: 60px 90px;
+}
+
  .navbar-form {
 	 -webkit-flex-basis: 100%;
 	 -moz-flex-basis: 100%;
@@ -41,8 +46,9 @@ body {
     display: inline-block; 
     width: 170px; 
     height: 170px; 
-    margin: 90px; 
-    margin-top: 40px;
+    margin: 40px; 
+    /* margin-top: -20px; */
+    margin-left:90px;
     
 } 
 
@@ -243,10 +249,6 @@ input[type=email]{
     margin-left: 20%;
 }
 
-/* .checkbox{
-    margin-top: 30px;  
-    margin-left: 1%;
-} */
 @media(min-width:576px) {
     .navbar-expand-sm .input-group-search {
        width: 20% !important; 
