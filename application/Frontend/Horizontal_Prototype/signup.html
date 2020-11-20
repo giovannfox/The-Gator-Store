@@ -2,10 +2,20 @@
 
 <html>
     <head>
-        <title>Post Image</title>
+        <title>SignUp</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">        
+        
+        <!-- Main Stylesheet File -->
         <link rel="stylesheet" href="assets/style.css">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://mdbootstrap.com/previews/docs/latest/js/bootstrap.min.js"></script>   
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        
+ 
 
 
         <script>
@@ -69,79 +79,64 @@
                      <a class="nav-link text-light" href="/about/about.html">About</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link text-light" href="poat.html">Post</a>
+                     <a class="nav-link text-light" href="post.html">Post</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link text-light" href="#">Login</a>
+                     <a class="nav-link text-light" href="login.html">Login</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Sign up</a>
+                    <a class="nav-link text-light" href="signup.html">Signup</a>
                  </li>
                </ul>
             </div>
          </nav>
 
-         <div class="signup-header">
-            <h2 id="signup-title">SignUp</h2>
+          <!-- Signup page title-->
+          <div class="signup-header">
+            <h2 id="signup-title" style="margin-top: 100px;">SignUp</h2>
             <hr>
         </div>
 
+
         <div id="around_the_form">
-            <form action="/postitem" method="POST" enctype="multipart/form-data" class="formPost">
-                <!-- <label id="ptitle" > Post Title:</label>
-                <input type="text" name="title">
-
-                <br>
-
-                <label id="pcateg" name="pdesc"> Post Category:</label>
-                <input type="text" name="category">
-                
-                <br>
-
-                <label id="pprice" name="pdesc"> Post Price:</label>
-                <input type="text" name="price">
-
-                <br>
-
-                <label id="pdesc" name="pdesc"> Input Post Description:</label>
-                <input type="text" name="description">
-
-                <br>
-
-                <input id ="pinput" type="file" accept="image/jpg image/png image/bmp image/gif" name="user_image">
-
-                <br>
-
-                Check to accept Acceptable Use Policy for uploading images.
-                <input type="checkbox" required>
-
-                <br>
-
-                <input id="button" type="cancel">
-                <input id="button" type="submit"> -->
+            <form action="/signup" method="POST" class="formPost">
 
                 <div class="container">
-                    <!-- <div class="text-center">
-                            <h2 class="-text"><i class="fa fa-user white-text"></i> Register:</h2>
-                                    <hr class="hr-light">
-                    </div> -->
-                <label for="email"><i class="fa fa-envelope text-secondary font-weight-bold"></i> Email Address:</label>
-                <input class="text" name="email" type="email" />
+                <label for="firstname"><i></i></label>
+                <input name="firstname" type="text" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder=" &#xf007; First Name" required/>
                 <br>
-                <label for="firstname"><i class="fa fa-pencil white-text"></i> First Name:</label>
-                <input name="firstname" type="text" />
+                <label for="lastname"><i></i></label>
+                <input name="lastname" type="text" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf007; Last Name" required/>
                 <br>
-                <label for="lastname"><i class="fa fa-pencil white-text"></i> Last Name:</label>
-                <input name="lastname" type="text" />
+                <label for="email"><i></i></label>
+                <input class="text" name="email" type="email" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf0e0; Email (sfsu.edu)"required/>
                 <br>
-                <label for="password"><i class="fa fa-lock white-text"></i> Password:</label>
-                <input name="password" type="password" />
+                <label for="password"><i></i></label>
+                <input name="password" type="password" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf023; Password" required/>
+                <br>
+                <label for="confirmpassword"><i></i></label>
+                <input name="password" type="password" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf023; Confirm Password" required/>
+                <br>
+                <div class="" style="margin-left:65px;">
+                    <label class="form-ckeck-label">
+                        <input class="checkbox" type="checkbox" required>
+                        I accept the 
+                        <a href="#">Terms of Use</a>
+                        &
+                        <a href="#">Privacy Policy</a>
+                    </label>
                 </div>
                 <br>
-                <input class="btn" type="submit" value="Sign Up">Post</input>
+                <input class="btn-secondary" type="submit" value="SignUp" placeholder="SignUp"></input>
+            </div>
+                <!-- <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha"> -->
+                <div class="" style="margin-top:-90px; margin-left:160px;">
+                    Already have an account? 
+                    <a href="signin.html">Sign in</a>
+                </div>
             </form>
-        
-            </form>
+            
         </div>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>

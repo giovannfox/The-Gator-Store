@@ -57,6 +57,12 @@ body {
     color:#808080
 }
 
+#signup-title{
+    text-align:center;
+    margin-top: 40px;
+    color:#808080
+}
+
 hr {
     width: 80%;
     margin-left: auto;
@@ -156,32 +162,32 @@ input[type=text] {
     padding: 12px 20px;
     margin: 14px 0;
     display: inline-block;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #808080;
     box-sizing: border-box;
-		  position: center;
-  margin-left: 37px;
+	position: center;
+    margin-left: 37px;
     font-size: 80%;
 }
 input[type=email]{
-	width: 54%;
+	width: 60%;
 	padding: 12px 20px;
 	margin: 14px 0;
 	display: inline-block;
-	border: 2px solid #FFFFFF;
+	border: 2px solid #808080;
 	box-sizing: border-box;
-		position: center;
-margin-left: 10px;
+	position: center;
+    margin-left: 10px;
 	font-size: 80%;
 }
 	input[type=password]{
-	width: 54%;
+	width: 60%;
 	padding: 12px 20px;
 	margin: 8px 0;
 	display: inline-block;
-	border: 2px solid #FFFFFF;
+	border: 2px solid #808080;
 	box-sizing: border-box;
 	position: center;
-    margin-left: 47px;
+    margin-left: 37px;
 	font-size: 80%;
 }
 
@@ -205,16 +211,8 @@ margin-left: 10px;
         margin-left: 37px;
         font-size: 80%;
     }
-    input[type=number]{
-        width: 60%;
-        padding: 12px 20px;
-        margin: 14px 0;
-        display: inline-block;
-        border: 2px solid #808080;
-        box-sizing: border-box;
-        position: center;
-        margin-left: 77px;
-        font-size: 80%;
+    .value{
+        color: lightgray;
     }
         
     .container1 {
@@ -238,8 +236,17 @@ margin-left: 10px;
     #around_the_form{
         border: 1px;
     }
+.btn-secondary{
+    margin-top: 50px;
+    width: 30%;
+    padding: 1%;
+    margin-left: 20%;
+}
 
-
+/* .checkbox{
+    margin-top: 30px;  
+    margin-left: 1%;
+} */
 @media(min-width:576px) {
     .navbar-expand-sm .input-group-search {
        width: 20% !important; 

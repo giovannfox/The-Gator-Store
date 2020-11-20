@@ -5,12 +5,15 @@
         <title>Post Image</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">        
+        
+        <!-- Main Stylesheet File -->
         <link rel="stylesheet" href="assets/style.css">
+        
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="https://mdbootstrap.com/previews/docs/latest/js/bootstrap.min.js"></script>    
-        <!-- <script type="text/javascript" src="../js/sitescript.js"></script> -->
 
         <script>
+        // handles alphanumerics charaters
             function letternumber(e){
             
             var key;
@@ -41,6 +44,7 @@
     </head>
 
     <body>
+        <!-- pages navbar-->
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
             <a class="navbar-brand" href="/"><img src="assets/logo2.png" width="120" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +67,6 @@
                      <button class="form-control" type="submit" id="search-button-addon">&#128269;</button>
                     </div>
                   <div class="input-group-append">
-                     <!-- <button class=" btn-grey" type="submit" id="search-button-addon">&#128269;</button> -->
                   </div>
                </div>
             </form>
@@ -85,11 +88,13 @@
             </div>
          </nav>
 
+         <!-- Post page title-->
          <div class="post-header">
             <h2 id="post-title" style="margin-top: 100px;">Post Item</h2>
             <hr>
         </div>
 
+        <!-- Post page form-->
         <div id="around_the_form">
             <form action="/postitem" method="POST" enctype="multipart/form-data" class="formPost">
 
@@ -111,12 +116,13 @@
                 <input id ="pinput" type="file" accept="image/jpg image/png image/bmp image/gif" name="user_image" style="margin-left:12px;" required/>
                 </div>
                 <br>
-                <div style="">
-                <input class="btn-secondary" type="reset" value="Cancel" />
-                <input class="btn-secondary" type="submit" value="Post" />
+                <!-- Post page buttons cancel, which will reset the form and post button-->
+                <div class="text-center">
+                <button class="btn btn-danger btn-lg btn-radius" type="reset" value="Cancel" >Cancel</button>
+                <button class="btn btn-light btn-lg btn-radius" style="width: 100px; background:grey; padding:9px; color:white;" type="submit" value=" Post ">Post</button>
                 
                 </div>
-                <h5 style="font-size:60%;margin-left:160px;">*it may take up to 24 hours for post to be approved</h5>
+                <h5 style="font-size:60%;margin-left:160px; margin-top:40px;">*it may take up to 24 hours for post to be approved</h5>
             </div>
 
             </form>
