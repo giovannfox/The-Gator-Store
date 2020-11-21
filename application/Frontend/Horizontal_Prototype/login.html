@@ -2,7 +2,7 @@
 
 <html lang="en">
     <head>
-        <title>User Dashboard</title> 
+        <title>Login</title> 
         <meta charset="UTF-8">
     
         <!-- Bootstrap JS -->
@@ -51,7 +51,6 @@
     </head>
 
     <body>
-
       <!-- fixed top navbar -->
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <a class="navbar-brand" href="/"><img src="assets/logo2.png" width="120" alt="logo"></a>
@@ -96,123 +95,48 @@
         </div>
      </nav>
 
-      <!-- dashboard -->
-      <div class="p-5">
-
-          <h1 class="mb-2 text-center">Dashboard</h1>
-          <hr>
+        <!-- login form -->
+        <h1 class="m-5 text-center">Login</h1>
+        <hr>
         
-          <!-- tabs for posts and messages -->
-          <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Posts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
-            </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-            </li> -->
-          </ul>
-
-          <!-- tab content -->
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-                <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Item Name</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Instructor</th>
-                        <th scope="col">Course</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Approval Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Test Item 1</td>
-                        <td>Books</td>
-                        <td>instructor name</td>
-                        <td>course name</td>
-                        <td>$17</td> 
-                        <td>Approved</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Test Item 2</td>
-                        <td>Clothing</td>
-                        <td>null</td>
-                        <td>null</td>
-                        <td>$35</td> 
-                        <td>Denied</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Test Item 3</td>
-                        <td>Electronics</td>
-                        <td>null</td>
-                        <td>null</td>
-                        <td>$5</td> 
-                        <td>Pending</td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-            <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Item Name</th>
-                    <th scope="col">From User</th>
-                    <th scope="col">Message Body</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Test Item 1</td>
-                    <td>student7</td>
-                    <td>I would like to purchase this book, can we meet at the library?</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Test Item 1</td>
-                    <td>student94</td>
-                    <td>can meet at cesar chavez building, lmk if book still available</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Test Item 1</td>
-                    <td>student18</td>
-                    <td>Hello, saw your message for one of my items, we can do an exchange at the library if that's okay</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div> -->
-          </div>
-
-      </div>
+        <div class="p-4 container col-7">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Email (ending in "sfsu.edu")'>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <small id="emailHelp" class="form-text text-muted"><a href="#">Forgot password?</a></small> <!-- dummy link -->
+                </div>
+                <!-- maybe add captcha here? -->
+                <!-- <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">I am not a robot</label>
+                </div> -->
+                <button type="submit" class="btn btn-success btn-block">Login</button>
+            </form>
+            <p class="pt-3 text-center">Don't have an account yet? 
+                <!-- need to include link to account creation page here -->
+                <a href="#">Create one here</a>
+            </p>
+        </div>
 
       <!-- bottom navbar -->
       <nav class="navbar bottom navbar-expand-lg navbar-light bg-light justify-content-center">
-          <ul class="navbar-nav justify-content-center">
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a> <!-- dummy link-->
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Terms</a> <!-- dummy link-->
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Privacy</a> <!-- dummy link-->
-              </li>
-          </ul>
+        <ul class="navbar-nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a> <!-- dummy link-->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Terms</a> <!-- dummy link-->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Privacy</a> <!-- dummy link-->
+            </li>
+        </ul>
       </nav>
-
 
     </body>
 </html>
