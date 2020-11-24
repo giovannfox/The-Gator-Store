@@ -101,10 +101,11 @@
         </div>
      </nav>
       
-      <h2 class="pt-5 text-center">Search Results</h2>
+      <h2 id="key" class="pt-5 text-center"></h2>
       <div id="count" class="col m-3"></div>
       <!-- display results of search -->
       <div id="result" class="row row-cols-1 row-cols-md-2 p-2"></div>
+
       <!-- bottom navbar -->
       <nav class="navbar bottom navbar-expand-lg navbar-light bg-light justify-content-center">
         <ul class="navbar-nav justify-content-center">
@@ -138,13 +139,16 @@
 
               const searchResult = await response.json(); // read response body as text
 
+              const searchKey = url.searchParams.get("searchKey");
+              document.getElementById("key").innerHTML = 'Search Results for "' + searchKey + '"';
+
               var count = 0;
               searchResult.results.forEach(item => {
                 count++;
                 document.getElementById('result').innerHTML +=
                   '<div class="col mb-4">' +
                     '<div class="card" style="width: 18rem;">' + 
-                      '<img class="card-img-top" src="' + item.image + '" alt="' + item.title + '">' +
+                      '<img class="card-img-top" src="' + item.image + '" alt="' + item.title + '" style="width: 18rem; height: 18rem;">' +
                       '<div class="card-body">' +
                         '<h3 class="card-title">' + item.title + '</h3>' +
                         '<p class="card-text">Instructor: ' + item.instructor + '<br>Course: ' + item.course + '<br>$' + item.price + '</p>' +
