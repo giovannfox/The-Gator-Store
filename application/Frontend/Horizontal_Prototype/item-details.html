@@ -2,7 +2,8 @@
 
 <html lang="en">
     <head>
-        <title>[item name]</title> 
+        <!-- title of item will be displayed in item tag -->
+        <title id="title"></title> 
         <meta charset="UTF-8">
     
         <!-- Bootstrap JS -->
@@ -97,34 +98,28 @@
      </nav>
 
       <!-- item details -->
-      <div id="result" class="p-5 result">
+      <div class="p-5">
 
           <!-- item name -->
-          <h1 class="mb-2">Item Name</h1>
+          <h1 id="name" class="mb-4"></h1>
           <!-- <h3 class="my-2"><small>Seller name</small></h3> -->
         
           <!-- image and details row -->
           <div class="row">
 
               <!-- image column -->
-              <div id="image" class="col-md-7">
-                  <img class="img-fluid" src="http://placehold.it/450" alt="">
-              </div>
+              <div id="image" class="col-md-7"></div>
               
               <!-- details & messaging column -->
               <div class="col-md-4">
-                  <p style="font-size:1.25em"> 
-                    <strong>Course: </strong>_
-                  </p>
-                  <p style="font-size:1.25em">
-                    <strong>Instructor: </strong>_
-                  </p>
-                  <p style="font-size:1.25em">
-                    <strong>Price: </strong>$_
-                  </p>
+                  <p id="course" style="font-size:1.25em"></p>
+
+                  <p id="instructor" style="font-size:1.25em"></p>
+
+                  <p id="price" style="font-size:1.25em"></p>
                                   
                   <h5 class="my-3"><strong>Description</strong></h5>
-                  <p id="description">_</p>
+                  <p id="description"></p>
 
                   <h5 class="my-3"><strong>Message seller</strong></h5>
                   <form>
@@ -155,27 +150,45 @@
       </nav>
 
       <script>
-        // $("div[id='result'").ready((e) => {
-        //   postDetails(e)
-        // });        
-
-        const url = new URL('http://localhost:3000/post/1');
-
-        // var getPostId = function (url, index) {
-        //   return url.replace(/^https?:\/\//, '').split('/')[index];
-        // }
-        // getPostId("http://domain.com/a/b/c/d/e", 2);
         
-        async function postDetails() {
+
+        async function itemDetails() {
+          const url = new URL(window.location.href);
+          const postId = url.searchParams.get("id");
+
+          // let response = await fetch("http://localhost:3000/post/" + postId);
+
+          // const postData = await response.json();
           
-          const response = await fetch(url);
-          const data = await response.json();
+          // document.getElementById("description").innerHTML = postData.results;
+          
+          // console.log(postData);
 
-          console.log(data);
-        
+          let postData = new XMLHttpRequest();
+          postData.open("get", "http://localhost:3000/post/" + postId);
+          postData.send();
+
+          postData.onload = function() {
+            console.log(postData.response);
+            var response = JSON.parse(postData.responseText);
+            document.getElementById("title").innerHTML = response.title;
+            document.getElementById("name").innerHTML = response.title;
+
+            document.getElementById("image").innerHTML +=
+              '<img class="img-fluid" src="' + response.image + '" alt="' + response.title + '">';
+
+            document.getElementById("course").innerHTML += 
+              '<strong>Course: </strong>' + response.course;
+            document.getElementById("instructor").innerHTML += 
+              '<strong>Instructor: </strong>' + response.instructor;
+            document.getElementById("price").innerHTML += 
+              '<strong>Price: </strong>$' + response.price;
+
+            document.getElementById("description").innerHTML = response.description;
+          };
         }
 
-        postDetails();
+        itemDetails();
 
       </script>
 
