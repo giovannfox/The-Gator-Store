@@ -249,6 +249,19 @@ input[type=email]{
     margin-left: 20%;
 }
 
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  background-color:grey;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+
+
 @media(min-width:576px) {
     .navbar-expand-sm .input-group-search {
        width: 20% !important; 

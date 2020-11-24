@@ -49,10 +49,11 @@
     </head>
 
     <body>
+        <div>
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-            <a class="navbar-brand" href="/"><img src="assets/logo2.png" width="120" alt="logo"></a>
+            <a class="navbar-brand" href="home.html"><img src="assets/logo2.png" width="120" alt="logo"></a>
             <div class="title" >
-                <h4 style="text-align:center; color:white; font-size:10px;"> CSC648-03 Team 02</h4>
+                <h4 style="text-align:center; color:white; font-size:10px;">SFSU Sofware Engineering Project - CSC648-03 Team 02</h4>
             </div> 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -93,12 +94,13 @@
                </ul>
             </div>
          </nav>
+        </div>
 
           <!-- Signup page title-->
           <div class="signup-header">
             <h2 id="signup-title" style="margin-top: 100px;">SignUp</h2>
             <hr>
-        </div>
+          </div>
 
 
         <div id="around_the_form">
@@ -128,19 +130,41 @@
                         &
                         <a href="#">Privacy Policy</a>
                     </label>
-                </div>
+                                  <!--Captcha-->
+              <!-- <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6Lci5eUZAAAAAMmIdF8H51JWSJsvOexPR__Rlcrr" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                <input class="d-none" data-recaptcha="true" data-error="Please complete the Captcha">
+                <div class="help-block with-errors"></div>
+              </div>
+                </div> -->
                 <br>
-                <input class="btn-secondary" type="submit" value="SignUp" placeholder="SignUp"></input>
+                <input class="btn-secondary" type="submit" style="margin-top:10px;"value="SignUp" placeholder="SignUp"></input>
             </div>
-                <!-- <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
-                <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha"> -->
-                <div class="" style="margin-top:-90px; margin-left:160px;">
+                <div class="" style="margin-top:5px; margin-left:200px;">
                     Already have an account? 
                     <a href="signin.html">Sign in</a>
                 </div>
             </form>
             
-        </div>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        </div>  
+             <!-- bottom navbar -->
+        <div class="footer" style="background-color:#D0D0D0;">
+        <div class="navbar bottom navbar-expand-lg navbar-light justify-content-center">
+           <ul class="navbar-nav justify-content-center">
+               <li class="nav-item">
+                   <a class="nav-link" href="#">Contact</a> <!-- dummy link-->
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="#">Terms</a> <!-- dummy link-->
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="#">Privacy</a> <!-- dummy link-->
+               </li>
+           </ul>
+       </div>
+   </div>
     </body>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  
 </html>
