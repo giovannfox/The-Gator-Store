@@ -16,6 +16,13 @@ const userExists = async (userEmail) => {
         return false;
 }
 
+/**
+ * 
+ * @param {String} email Email to be inserted.
+ * @param {String} password Password NOT HASHED
+ * @param {String} firstName User first name
+ * @param {String} lastName User last name
+ */
 const insertUser = async (email, password, firstName = null, lastName = null) => {
     const client = db.client()
     password = await bcrypt.hash(password, 10)
@@ -23,11 +30,23 @@ const insertUser = async (email, password, firstName = null, lastName = null) =>
     const results = await client.query(
         "INSERT INTO `dev`.`Users` ( `email`, `password`, `firstName`, `lastName`) VALUES ( '" + email + "', '" + password + "', '" + firstName + "', '" + lastName + "');")
 
-    console.log('results :>> ', results);
+    console.log('USER INSERTED :>> ', results);
+}
+
+
+const getUser = async (email, password = null) => {
+    const client = db.client()
+
+    const [results] = await client.query(
+        "SELECT id, email, password, firstName, lastName FROM dev.Users WHERE email = '" + email + "';")
+    
+    // console.log('results :>> ', results);
+    return results[0]
 
 }
 
 module.exports = {
     userExists,
-    insertUser
+    insertUser,
+    getUser
 }
