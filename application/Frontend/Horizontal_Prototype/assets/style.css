@@ -3,8 +3,8 @@
 body {
 	padding-top: 56px;
  }
+ 
  .container{
-    
     padding: 120px 20px;
     /* margin-left: 50px; */
 	/* margin: 30px auto 50px;
@@ -15,6 +15,11 @@ body {
 	background-color: #fff;
 	box-shadow: 0 0 1px #ccc; */
 }
+
+.container3{
+    padding: 60px 90px;
+}
+
  .navbar-form {
 	 -webkit-flex-basis: 100%;
 	 -moz-flex-basis: 100%;
@@ -23,23 +28,42 @@ body {
 	 flex-basis: -moz-available;
      flex-basis: 100%;	
  }
+ .form-control{
+    border-radius: 0;
+ }
 
- /* .input-group-search {
-    left: -150px;
-	
- } */
+ #search_bar{
+    width: 300px;
+    left: 200px;
+}
 
+#selectionType{
+    width:80px;
+    height:38px;
+}
 
- .border { 
+.border { 
     display: inline-block; 
     width: 170px; 
     height: 170px; 
-    margin: 90px; 
-    margin-top: 40px;
+    margin: 40px; 
+    /* margin-top: -20px; */
+    margin-left:90px;
     
 } 
 
 #category-title{
+    text-align:center;
+    color:#808080
+}
+
+#post-title{
+    text-align:center;
+    margin-top: 40px;
+    color:#808080
+}
+
+#signup-title{
     text-align:center;
     margin-top: 40px;
     color:#808080
@@ -52,19 +76,12 @@ hr {
     margin-top: 40px;
     height: 5px;
     background-color:#696969; 
-    opacity: 0.5;}
-/* #category-links{
-margin-left: 80px;
-} */
+    opacity: 0.5;
+}
 
- /* .navbar-nav{
-    margin-left: -140px;
- } */
 
  #search-button-addon{
-     height: 40px;
      width: 40px;;
-     margin-top: -1px;
  }
 
  option{
@@ -146,6 +163,105 @@ html{
     background-repeat: no-repeat;
 }
 
+input[type=text] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 14px 0;
+    display: inline-block;
+    border: 2px solid #808080;
+    box-sizing: border-box;
+	position: center;
+    margin-left: 37px;
+    font-size: 80%;
+}
+input[type=email]{
+	width: 60%;
+	padding: 12px 20px;
+	margin: 14px 0;
+	display: inline-block;
+	border: 2px solid #808080;
+	box-sizing: border-box;
+	position: center;
+    margin-left: 10px;
+	font-size: 80%;
+}
+	input[type=password]{
+	width: 60%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 2px solid #808080;
+	box-sizing: border-box;
+	position: center;
+    margin-left: 37px;
+	font-size: 80%;
+}
+
+.formPost {
+    position: absolute;
+    margin-left: 30%;
+    width: 50%;
+    height: 28%;
+    margin-top: -50px;
+    border: lightgray;
+        
+    }
+    input[type=text] {
+        width: 60%;
+        padding: 12px 20px;
+        margin: 14px 0;
+        display: inline-block;
+        border: 2px solid #808080;
+        box-sizing: border-box;
+        position: center;
+        margin-left: 37px;
+        font-size: 80%;
+    }
+    .value{
+        color: lightgray;
+    }
+        
+    .container1 {
+        margin-top: 80px;
+        padding: 12px;
+            width: 100%;
+    }
+    
+    h2 {
+        text-align: center;
+        font-size:200%;
+        margin-top: 80px;
+        color: white;
+    }
+
+    label{
+        color:#808080;
+        font-size: 17px;
+    }
+
+    #around_the_form{
+        border: 1px;
+    }
+.btn-secondary{
+    margin-top: 50px;
+    width: 30%;
+    padding: 1%;
+    margin-left: 20%;
+}
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  background-color:grey;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+
+
 @media(min-width:576px) {
     .navbar-expand-sm .input-group-search {
        width: 20% !important; 
@@ -170,15 +286,15 @@ html{
     }
 }
  
-@media(max-width: 1250px){
+/* @media(max-width: 1250px){
 
 	.container{
 		justify-content: center;
 		margin: 30px 30px 50px 30px;
     }
     .input-group-search {
-        width: 300px;;
+        width: 400px;;
     }
 
 }
-
+ */

@@ -54,24 +54,30 @@
       <!-- fixed top navbar -->
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <a class="navbar-brand" href="/"><img src="assets/logo2.png" width="120" alt="logo"></a>
+        <div class="title" >
+            <h4 style="text-align:center; color:white; font-size:10px;">SFSU Sofware Engineering Project - CSC648-03 Team 02</h4>
+        </div>  
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <form class="form-inline my-2 my-lg-0 navbar-form" method="get" name="search" action="/search-results.html">
            <div class="input-group input-group-search mx-auto">
-              <div class="input-group-prepend">
-                
+              <div class="input-group-prepend"> 
                  <select class="form-control selectWidth"  id="selectionType" name="categoryKey">
-                    <option>Categories</option> 
-                    <option  value="books">Books</option>
+                    <option>All</option> 
+                    <option value="books">Books</option>
                     <option value="electronics">Electronics</option>
                     <option value="furniture">Furniture</option>
                     <option value="clothings">Clothing</option>
                     <option value="supplies">Supplies</option>
-                     <option value="household">Household</option>
+                    <option value="household">Household</option>
+                    <!-- <div class="title" >
+                    </br>
+                        <h4 style="text-align:center; color:white; font-size:20px; margin-top:20%;"> CSC648-03 Team 02</h4>
+                    </div>  -->
                  </select>
+                 <input type="search" id="search_bar" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="search-button-addon" maxlength="40"  onKeyPress="return letternumber(event)" name="searchKey">
               </div>
-                <input type="search" id="search_bar" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="search-button-addon" maxlength="40"  onKeyPress="return letternumber(event)" name="searchKey">
               <div class="input-group-append">
                  <button class=" btn-grey" type="submit" id="search-button-addon">&#128269;</button>
               </div>
@@ -83,22 +89,23 @@
                  <a class="nav-link text-light" href="/about/about.html">About</a>
               </li>
               <li class="nav-item">
-                 <a class="nav-link text-nowrap" href="#">Post</a>
+                 <a class="nav-link text-light" href="post.html">Post</a>
               </li>
               <li class="nav-item">
-                 <a class="nav-link text-nowrap" href="#">Login</a>
+                 <a class="nav-link text-light" href="login.html">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-nowrap" href="#">Sign up</a>
+                <a class="nav-link text-light" href="signup.html">SignUp</a>
              </li>
            </ul>
         </div>
      </nav>
       
-      <h2 class="pt-5 text-center">Search Results</h2>
+      <h2 id="key" class="pt-5 text-center"></h2>
       <div id="count" class="col m-3"></div>
       <!-- display results of search -->
       <div id="result" class="row row-cols-1 row-cols-md-2 p-2"></div>
+
       <!-- bottom navbar -->
       <nav class="navbar bottom navbar-expand-lg navbar-light bg-light justify-content-center">
         <ul class="navbar-nav justify-content-center">
@@ -132,17 +139,20 @@
 
               const searchResult = await response.json(); // read response body as text
 
+              const searchKey = url.searchParams.get("searchKey");
+              document.getElementById("key").innerHTML = 'Search Results for "' + searchKey + '"';
+
               var count = 0;
               searchResult.results.forEach(item => {
                 count++;
                 document.getElementById('result').innerHTML +=
                   '<div class="col mb-4">' +
                     '<div class="card" style="width: 18rem;">' + 
-                      '<img class="card-img-top" src="' + item.image + '" alt="' + item.title + '">' +
+                      '<img class="card-img-top" src="' + item.image + '" alt="' + item.title + '" style="width: 18rem; height: 18rem;">' +
                       '<div class="card-body">' +
                         '<h3 class="card-title">' + item.title + '</h3>' +
                         '<p class="card-text">Instructor: ' + item.instructor + '<br>Course: ' + item.course + '<br>$' + item.price + '</p>' +
-                        '<a href="/item-details.html" class="btn btn-primary">See more details</a>' +
+                        '<a href="/item-details.html?id=' + item.id + '" target="_blank" class="btn btn-primary">See more details</a>' +
                       '</div>' +
                     '</div>' +
                   '</div>'
