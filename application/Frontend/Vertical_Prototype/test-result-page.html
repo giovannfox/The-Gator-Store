@@ -72,9 +72,12 @@
                   const url = new URL(window.location.href);
                   console.log(url.searchParams.get("searchKey"));
 
-                
+
+
+                 // let response = await fetch('http://localhost:3000/search/results?searchKey='+ url.searchParams.get("searchKey"));
+                  
                   let response = await fetch('http://localhost:3000/search/results?categoryKey='+url.searchParams.get("categoryKey")+'&searchKey='+ url.searchParams.get("searchKey"));
-                    //let response = await fetch('http://35.163.149.5:3000/search/results?categoryKey='+url.searchParams.get("categoryKey")+'&searchKey='+ url.searchParams.get("searchKey"));
+
 
                   // old url
            //   let response = await fetch('http://35.163.149.5:3000/search/results?searchKey='+ url.searchParams.get("searchKey"));
@@ -93,7 +96,6 @@
                         '<p class="card-text">' + item.description + '</p>' +
                         '<a href="#" class="btn btn-primary">See more details</a>' +
                       '</div>' +
-                    '</div>'
                     '</div>' +
                   '</div>'
                 }); 

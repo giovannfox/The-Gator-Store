@@ -1,3 +1,8 @@
+/**
+ * This file contains the connection params 
+ * and db query pool that will be used throughout the app.
+ */
+
 const mysql = require('mysql2');
 
 var dbClient = null;
