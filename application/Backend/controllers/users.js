@@ -58,7 +58,7 @@ router.post('/register', async (req, res) => {
             .json({
                 "message": "Duplicate User entered."
             });
-            
+
     return res.status(200).redirect("/login.html")
 });
 
@@ -95,5 +95,11 @@ router.post('/login', async (req, res) => {
 
     return res.status(200).cookie("token", signedCookie).jsonp(user);
 });
+
+/**
+ * Logout route.
+ * Author: Ramy Fekry
+ */
+router.get('/logout', async (_req, res) => res.status(200).clearCookie("token").redirect("/home.html"));
 
 module.exports = router
