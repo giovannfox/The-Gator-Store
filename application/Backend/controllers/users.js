@@ -40,7 +40,7 @@ router.post('/register', async (req, res) => {
             });
 
     //check if email exists in db
-    const isUserExists = userExists(email)
+    const isUserExists = await userExists(email)
 
     if (isUserExists)
         return res
@@ -53,7 +53,7 @@ router.post('/register', async (req, res) => {
     //store email and password in db
     await insertUser(email, password)
 
-    return res.status(200).redirect("/dashboard");
+    return res.status(200).send("okay!") /* .redirect("/user/login") */
 });
 
 /**
@@ -65,13 +65,14 @@ router.post('/login', async (req, res) => {
     const password = req.body.password;
 
     if (!email || !password)
-        return res
-            .status(400)
-            .json({
-                "message": "Please enter an email and password!"
-            })
+        return res.status(403).send("Bad User password or email")
 
     const user = await getUser(email);
+    
+    if (!user)
+        return res.status(400).json({
+            "message": "User does not exist!"
+        })
 
     const correctPassword = await compare(password, user.password)
 
