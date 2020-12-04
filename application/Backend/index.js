@@ -9,7 +9,10 @@ const db = require('./dbConnection');
 const app = express();
 const search = require('./controllers/search.js');
 const post = require('./controllers/posts.js');
+const user = require('./controllers/users.js');
 var morgan = require('morgan');
+var bodyParser = require('body-parser');
+
 const PORT = 3000;
 
 //var aws = require('aws-sdk')
@@ -21,12 +24,17 @@ db.connect();
 
 /***MIDDLEWARE******/
 app.use(morgan("dev"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
 /* Main router to controllers */
 app.use('/', express.static(path.join(__dirname, "./../Frontend/Horizontal_Prototype/")));
 app.use('/about', express.static(path.join(__dirname, "./../Frontend/About-individual-pages/")));
 app.use('/search', search);
 app.use('/post', post);
+app.use("/user", user)
 
 /**
  * is this still needed?
