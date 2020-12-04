@@ -51,9 +51,15 @@ router.post('/register', async (req, res) => {
             });
 
     //store email and password in db
-    await insertUser(email, password)
-
-    return res.status(200).send("okay!") /* .redirect("/user/login") */
+    const userInserted = await insertUser(email, password)
+    if ("duplicate entry" == userInserted)
+        return res
+            .status(400)
+            .json({
+                "message": "Duplicate User entered."
+            });
+            
+    return res.status(200).redirect("/login.html")
 });
 
 /**
@@ -68,7 +74,7 @@ router.post('/login', async (req, res) => {
         return res.status(403).send("Bad User password or email")
 
     const user = await getUser(email);
-    
+
     if (!user)
         return res.status(400).json({
             "message": "User does not exist!"
@@ -77,7 +83,7 @@ router.post('/login', async (req, res) => {
     const correctPassword = await compare(password, user.password)
 
     if (correctPassword === false) {
-        return res.status(403).send("Bad User password or email") /* .redirect("/user/login") */ ;
+        return res.status(403).send("Bad User password or email").redirect("/login.html");
     }
 
     delete user.password

@@ -27,10 +27,15 @@ const insertUser = async (email, password, firstName = null, lastName = null) =>
     const client = db.client()
     password = await bcrypt.hash(password, 10)
 
-    const results = await client.query(
-        "INSERT INTO `dev`.`Users` ( `email`, `password`, `firstName`, `lastName`) VALUES ( '" + email + "', '" + password + "', '" + firstName + "', '" + lastName + "');")
-
-    console.log('USER INSERTED :>> ', results);
+    try {
+        await client.query(
+            "INSERT INTO `dev`.`Users` ( `email`, `password`, `firstName`, `lastName`) VALUES ( '" + email + "', '" + password + "', '" + firstName + "', '" + lastName + "');")
+    } catch (error) {
+        if (error.message.includes("Duplicate")){
+            return "duplicate entry"
+        }
+    }
+    return true    
 }
 
 
@@ -39,7 +44,7 @@ const getUser = async (email, password = null) => {
 
     const [results] = await client.query(
         "SELECT id, email, password, firstName, lastName FROM dev.Users WHERE email = '" + email + "';")
-    
+
     // console.log('results :>> ', results);
     return results[0]
 
