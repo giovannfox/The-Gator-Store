@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>SignUp</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">        
+        
+        <!-- Main Stylesheet File -->
+        <link rel="stylesheet" href="assets/style.css">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://mdbootstrap.com/previews/docs/latest/js/bootstrap.min.js"></script>   
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        
+ 
+
+
+        <script>
+            function letternumber(e){
+            
+            var key;
+            var keychar;
+    
+            if (window.event)
+                key = window.event.keyCode;
+            else if (e)
+                key = e.which;
+            else
+                return true;
+            keychar = String.fromCharCode(key);
+            keychar = keychar.toLowerCase();
+    
+            // control keys
+            if ((key==null) || (key==0) || (key==8) || 
+                (key==9) || (key==13) || (key==27) )
+                return true;
+    
+            // alphas and numbers
+            else if ((("abcdefghijklmnopqrstuvwxyz0123456789").indexOf(keychar) > -1))
+                return true;
+            else
+                return false;
+    }
+        </script>
+    
+    </head>
+
+    <body>
+        <div>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+            <a class="navbar-brand" href="/home.html"><img src="assets/logo2.png" width="120" alt="logo"></a>
+            <div class="title" >
+                <h4 style="text-align:center; color:white; font-size:10px;">SFSU Sofware Engineering Project - CSC648-03 Team 02</h4>
+            </div> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="form-inline my-2 my-lg-0 navbar-form" method="get" name="search" action="/search-results.html">
+               <div class="input-group input-group-search mx-auto">
+                  <div class="input-group-prepend">
+                     <select class="form-control selectWidth"  id="selectionType" name="categoryKey">
+                        <option value="">All</option> 
+                        <option value="books">Books</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="clothings">Clothing</option>
+                        <option value="supplies">Supplies</option>
+                        <option value="household">Household</option>
+                     </select>
+
+                                     <input type="search" id="search_bar" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="search-button-addon" maxlength="40"  onKeyPress="return letternumber(event)" name="searchKey">
+                     <button class="form-control" type="submit" id="search-button-addon">&#128269;</button>
+                    </div>
+                  <div class="input-group-append">
+                  </div>
+               </div>
+            </form>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav">
+                  <li class="nav-item">
+                     <a class="nav-link text-light" href="/about/about.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link text-light" href="post.html">Post</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link text-light" href="login.html">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="signup.html">Signup</a>
+                 </li>
+               </ul>
+            </div>
+         </nav>
+        </div>
+
+          <!-- Signup page title-->
+          <div class="signup-header">
+            <h2 id="signup-title" style="margin-top: 100px;">SignUp</h2>
+            <hr>
+          </div>
+
+
+        <div id="around_the_form">
+            <form action="/signup" method="POST" class="formPost">
+
+                <div class="container">
+                <label for="firstname"><i></i></label>
+                <input name="firstname" type="text" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder=" &#xf007; First Name" required/>
+                <br>
+                <label for="lastname"><i></i></label>
+                <input name="lastname" type="text" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf007; Last Name" required/>
+                <br>
+                <label for="email"><i></i></label>
+                <input class="text" name="email" type="email" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf0e0; Email (sfsu.edu)"required/>
+                <br>
+                <label for="password"><i></i></label>
+                <input name="password" type="password" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf023; Password" required/>
+                <br>
+                <label for="confirmpassword"><i></i></label>
+                <input name="password" type="password" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf023; Confirm Password" required/>
+                <br>
+                <div class="" style="margin-left:65px;">
+                    <label class="form-ckeck-label">
+                        <input class="checkbox" type="checkbox" required>
+                        I accept the 
+                        <a href="#">Terms of Use</a>
+                        &
+                        <a href="#">Privacy Policy</a>
+                    </label>
+                                  <!--Captcha-->
+              <!-- <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6Lci5eUZAAAAAMmIdF8H51JWSJsvOexPR__Rlcrr" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                <input class="d-none" data-recaptcha="true" data-error="Please complete the Captcha">
+                <div class="help-block with-errors"></div>
+              </div>
+                </div> -->
+                <br>
+                <input class="btn-secondary" type="submit" style="margin-top:10px;"value="SignUp" placeholder="SignUp"></input>
+            </div>
+                <div class="" style="margin-top:5px; margin-left:200px;">
+                    Already have an account? 
+                    <a href="login.html">Sign in</a>
+                </div>
+            </form>
+            
+        </div>  
+             <!-- bottom navbar -->
+        <div class="footer" style="background-color:#D0D0D0;">
+        <div class="navbar bottom navbar-expand-lg navbar-light justify-content-center">
+           <ul class="navbar-nav justify-content-center">
+               <li class="nav-item">
+                   <a class="nav-link" href="#">Contact</a> <!-- dummy link-->
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="#">Terms</a> <!-- dummy link-->
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="#">Privacy</a> <!-- dummy link-->
+               </li>
+           </ul>
+       </div>
+   </div>
+    </body>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  
+</html>

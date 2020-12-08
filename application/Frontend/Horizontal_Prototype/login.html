@@ -2,8 +2,7 @@
 
 <html lang="en">
     <head>
-        <!-- title of item will be displayed in item tag -->
-        <title id="title"></title> 
+        <title>Login</title> 
         <meta charset="UTF-8">
     
         <!-- Bootstrap JS -->
@@ -52,7 +51,6 @@
     </head>
 
     <body>
-
       <!-- fixed top navbar -->
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <a class="navbar-brand" href="/home.html"><img src="assets/logo2.png" width="120" alt="logo"></a>
@@ -103,92 +101,48 @@
         </div>
      </nav>
 
-      <!-- item details -->
-      <div class="p-5">
-
-          <!-- item name -->
-          <h1 id="name" class="mb-4"></h1>
-          <!-- <h3 class="my-2"><small>Seller name</small></h3> -->
+        <!-- login form -->
+        <h1 class="m-5 text-center">Login</h1>
+        <hr>
         
-          <!-- image and details row -->
-          <div class="row">
-
-              <!-- image column -->
-              <div id="image" class="col-md-7"></div>
-              
-              <!-- details & messaging column -->
-              <div class="col-md-4">
-                  <p id="course" style="font-size:1.25em"></p>
-
-                  <p id="instructor" style="font-size:1.25em"></p>
-
-                  <p id="price" style="font-size:1.25em"></p>
-                                  
-                  <h5 class="my-3"><strong>Description</strong></h5>
-                  <p id="description"></p>
-
-                  <h5 class="my-3"><strong>Message seller</strong></h5>
-                  <form>
-                    <div class="form-group">
-                      <textarea class="form-control" id="messageToSeller" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-success">Send Message</button>
-                  </form>
-              </div>
-        
-          </div>
-    
-      </div>
+        <div class="p-4 container col-7">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Email (ending in "sfsu.edu")'>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <small id="emailHelp" class="form-text text-muted"><a href="#">Forgot password?</a></small> <!-- dummy link -->
+                </div>
+                <!-- maybe add captcha here? -->
+                <!-- <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">I am not a robot</label>
+                </div> -->
+                <button type="submit" class="btn btn-secondary">Login</button>
+            </form>
+            <p class="pt-3 text-center">Don't have an account yet? 
+                <!-- need to include link to account creation page here -->
+                <a href="/signup.html">Create one here</a>
+            </p>
+        </div>
 
       <!-- bottom navbar -->
       <nav class="navbar bottom navbar-expand-lg navbar-light bg-light justify-content-center">
-          <ul class="navbar-nav justify-content-center">
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a> <!-- dummy link-->
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Terms</a> <!-- dummy link-->
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Privacy</a> <!-- dummy link-->
-              </li>
-          </ul>
+        <ul class="navbar-nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a> <!-- dummy link-->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Terms</a> <!-- dummy link-->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Privacy</a> <!-- dummy link-->
+            </li>
+        </ul>
       </nav>
-
-      <script>
-        
-        // getting post information and displaying it to user
-        async function itemDetails() {
-          const url = new URL(window.location.href);
-          const postId = url.searchParams.get("id");
-
-          let postData = new XMLHttpRequest();
-          postData.open("get", "http://localhost:3000/post/" + postId);
-          postData.send();
-
-          postData.onload = function() {
-            console.log(postData.response);
-            var response = JSON.parse(postData.responseText);
-            document.getElementById("title").innerHTML = response.title;
-            document.getElementById("name").innerHTML = response.title;
-
-            document.getElementById("image").innerHTML +=
-              '<img class="img-fluid" src="' + response.image + '" alt="' + response.title + '">';
-
-            document.getElementById("course").innerHTML += 
-              '<strong>Course: </strong>' + response.course;
-            document.getElementById("instructor").innerHTML += 
-              '<strong>Instructor: </strong>' + response.instructor;
-            document.getElementById("price").innerHTML += 
-              '<strong>Price: </strong>$' + response.price;
-
-            document.getElementById("description").innerHTML = response.description;
-          };
-        }
-
-        itemDetails();
-
-      </script>
 
     </body>
 </html>

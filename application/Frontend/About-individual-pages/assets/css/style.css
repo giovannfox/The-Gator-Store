@@ -13,3 +13,291 @@
     margin-bottom:30px;
     
 }
+
+body {
+	padding-top: 56px;
+ }
+ 
+ .container{
+    padding: 120px 20px;
+    /* margin-left: 50px; */
+	/* margin: 30px auto 50px;
+	max-width: 1250px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	background-color: #fff;
+	box-shadow: 0 0 1px #ccc; */
+}
+
+.container3{
+    padding: 60px 90px;
+}
+
+ .navbar-form {
+	 -webkit-flex-basis: 100%;
+	 -moz-flex-basis: 100%;
+	 -ms-flex-basis: 100%;
+	 -o-flex-basis: 100%;
+	 flex-basis: -moz-available;
+     flex-basis: 100%;	
+ }
+ .form-control{
+    border-radius: 0;
+ }
+
+ #search_bar{
+    width: 300px;
+    left: 200px;
+}
+
+#selectionType{
+    width:80px;
+    height:38px;
+}
+
+.border { 
+    display: inline-block; 
+    width: 170px; 
+    height: 170px; 
+    margin: 40px; 
+    /* margin-top: -20px; */
+    margin-left:90px;
+    
+} 
+
+#category-title{
+    text-align:center;
+    color:#808080
+}
+
+#post-title{
+    text-align:center;
+    margin-top: 40px;
+    color:#808080
+}
+
+#signup-title{
+    text-align:center;
+    margin-top: 40px;
+    color:#808080
+}
+
+hr {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    height: 5px;
+    background-color:#696969; 
+    opacity: 0.5;
+}
+
+
+ #search-button-addon{
+     width: 40px;;
+ }
+
+ option{
+    display: inline-block;
+    height: 134px;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    width: 104px;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+
+html{
+	font: normal 16px sans-serif;
+	color: #333;
+	background-color: #f9f9f9;
+}
+#bg-text {
+    color: black;
+    font-weight: bold;
+    position: absolute;
+    top: 640px;
+    left: 45%;
+    transform: translate(-50%, -50%);
+  }
+
+#category-eletronic{
+    height: 168px;  
+    width: 168px;
+    background-image:url(eletronic.jpg);
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+#category-books{
+    height: 168px;  
+    width: 168px;
+    background-image:url(books.jpg);
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+#category-furniture{
+    height: 168px;  
+    width: 168px;
+    background-image:url(furniture.jpg);
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+#category-clothings{
+    height: 168px;  
+    width: 168px;
+    background-image:url(clothings.jpg);
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+#category-supplies{
+    height: 168px;  
+    width: 168px;
+    background-image:url(supplies.jpg);
+    position: absolute;
+    background-repeat: no-repeat;
+}
+#category-household{
+    height: 168px;  
+    width: 168px;
+    background-image:url(household.jpg);
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+input[type=text] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 14px 0;
+    display: inline-block;
+    border: 2px solid #808080;
+    box-sizing: border-box;
+	position: center;
+    margin-left: 37px;
+    font-size: 80%;
+}
+input[type=email]{
+	width: 60%;
+	padding: 12px 20px;
+	margin: 14px 0;
+	display: inline-block;
+	border: 2px solid #808080;
+	box-sizing: border-box;
+	position: center;
+    margin-left: 10px;
+	font-size: 80%;
+}
+	input[type=password]{
+	width: 60%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 2px solid #808080;
+	box-sizing: border-box;
+	position: center;
+    margin-left: 37px;
+	font-size: 80%;
+}
+
+.formPost {
+    position: absolute;
+    margin-left: 30%;
+    width: 50%;
+    height: 28%;
+    margin-top: -50px;
+    border: lightgray;
+        
+    }
+    input[type=text] {
+        width: 60%;
+        padding: 12px 20px;
+        margin: 14px 0;
+        display: inline-block;
+        border: 2px solid #808080;
+        box-sizing: border-box;
+        position: center;
+        margin-left: 37px;
+        font-size: 80%;
+    }
+    .value{
+        color: lightgray;
+    }
+        
+    .container1 {
+        margin-top: 80px;
+        padding: 12px;
+            width: 100%;
+    }
+    
+    h2 {
+        text-align: center;
+        font-size:200%;
+        margin-top: 80px;
+        color: white;
+    }
+
+    label{
+        color:#808080;
+        font-size: 17px;
+    }
+
+    #around_the_form{
+        border: 1px;
+    }
+.btn-secondary{
+    margin-top: 50px;
+    width: 30%;
+    padding: 1%;
+    margin-left: 20%;
+}
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  background-color:grey;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+
+
+@media(min-width:576px) {
+    .navbar-expand-sm .input-group-search {
+       width: 20% !important; 
+    }
+}
+@media(min-width:768px) {
+    .navbar-expand-md .input-group-search {
+       width: 40% !important; 
+    }
+}
+@media(min-width:992px) {
+    .navbar-expand-lg .input-group-search {
+       width: 40% !important; 
+    }
+    /*body {
+       padding-top: 110px;
+    }*/
+}
+@media(min-width:1200px) {
+    .navbar-expand-xl .input-group-search {
+       width: 40% !important; 
+    }
+}
+ 
+/* @media(max-width: 1250px){
