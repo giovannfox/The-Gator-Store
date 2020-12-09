@@ -17,7 +17,12 @@ router.get('/:postId', async (req, res) => {
     res.jsonp(await (itemDetails));
 });
 
+/**
+ * Recieves information for creating post, will send alert post is waiting approve and then will be redirected
+ * to user-dashboard 
+ */
 router.post('/', function(req, res){
+    console.log(req.params);
     res.redirect("user-dashboard.html");
 });
 
