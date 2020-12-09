@@ -11,7 +11,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- bootstrap-select CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+        
     
         <link rel="stylesheet" type="text/css" href="assets/style.css">
 
@@ -19,7 +20,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- bootstrap-select stylesheet -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css"> 
-        
+
+
         <script>
 
           function letternumber(e){
@@ -92,11 +94,21 @@
               <li class="nav-item">
                  <a class="nav-link text-light" href="post.html">Post</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item dropdown">
+                <a class="nav-link text-light" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Account
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/user-dashboard.html">My Dashboard</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item text-danger" href="#">Logout</a>
+                </div>
+              </li>
+              <!-- <li class="nav-item">
                  <a class="nav-link text-light" href="login.html">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="signup.html">SignUp</a>
+                <a class="nav-link text-light" href="signup.html">SignUp</a> -->
              </li>
            </ul>
         </div>
@@ -105,71 +117,87 @@
       <!-- dashboard -->
       <div class="p-5">
 
-          <h1 class="mb-2 text-center">Dashboard</h1>
+          <h1 class="mb-2 text-center">Welcome back, [user]</h1>
           <hr>
-        
-          <!-- tabs for posts and messages -->
-          <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Posts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
-            </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-            </li> -->
-          </ul>
 
-          <!-- tab content -->
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-                <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Item Name</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Instructor</th>
-                        <th scope="col">Course</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Approval Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Test Item 1</td>
-                        <td>Books</td>
-                        <td>instructor name</td>
-                        <td>course name</td>
-                        <td>$17</td> 
-                        <td>Approved</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Test Item 2</td>
-                        <td>Clothing</td>
-                        <td>null</td>
-                        <td>null</td>
-                        <td>$35</td> 
-                        <td>Denied</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Test Item 3</td>
-                        <td>Electronics</td>
-                        <td>null</td>
-                        <td>null</td>
-                        <td>$5</td> 
-                        <td>Pending</td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-            <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">...</div>
-            <!-- <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div> -->
-          </div>
+ 
+
+          <!-- table content - posts and messages -->
+          <!-- all posts made by user -->
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Instructor</th>
+                <th scope="col">Course</th>
+                <th scope="col">Price</th>
+                <th scope="col">Approval Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Test Item 1</td>
+                <td>Books</td>
+                <td>instructor name</td>
+                <td>course name</td>
+                <td>$17</td> 
+                <td>Approved</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Test Item 2</td>
+                <td>Clothing</td>
+                <td>null</td>
+                <td>null</td>
+                <td>$35</td> 
+                <td>Denied</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Test Item 3</td>
+                <td>Electronics</td>
+                <td>null</td>
+                <td>null</td>
+                <td>$5</td> 
+                <td>Pending</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">From User</th>
+                <th scope="col">Message Body</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Test Item 1</td>
+                <td>student7</td>
+                <td>I would like to purchase this book, can we meet at the library?</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Test Item 1</td>
+                <td>student94</td>
+                <td>can meet at cesar chavez building, lmk if book still available</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Test Item 1</td>
+                <td>student18</td>
+                <td>Hello, saw your message for one of my items, we can do an exchange at the library if that's okay</td>
+              </tr>
+            </tbody>
+          </table>
+
 
       </div>
 
