@@ -60,8 +60,23 @@ const getPostDetails = async (postId) => {
     return results[0];
 }
 
+/**
+ *
+ * @param {Object} postInfo Contains title, description, image, & price of post
+ * @returns void
+ */
+const createPost = (postInfo)=>{
+    const client = db.client()
+    var post = "INSERT INTO `Posts` (date, title, category_id, price, description, image) VALUES()";
+    client.query(post, function (err, result) {
+        if(err) throw err
+        console.log("Post added");
+    });
+}
+
 module.exports = {
     searchPostsByCategory,
     getPosts,
-    getPostDetails
+    getPostDetails,
+    createPost
 }

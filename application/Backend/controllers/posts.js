@@ -1,10 +1,14 @@
 /**
- * Controller that will hold all the search related routes.
+ * Controller that will hold all the Post related routes.
  */
 
 var express = require('express');
 var router = express.Router()
 const posts = require('../models/post');
+var aws = require('aws-sdk')
+var multer = require('multer')
+var multerS3 = require('multer-s3')
+var upload = multer()
 
 /**
  * Used to get each off the post details.
@@ -18,13 +22,21 @@ router.get('/:postId', async (req, res) => {
 });
 
 /**
- * Recieves information for creating post, will send alert post is waiting approve and then will be redirected
- * to user-dashboard 
+ * Recieves information for creating post, then will be redirect to user-dashboard 
+ * Before it does anything checks if user is logged in
  */
-router.post('/', function(req, res){
-    console.log(req.params);
+ 
+router.post('/',upload.any("file"), function(req,res,){
+    var postInfo = req.body;
+    postInfo["url"] = "hey";
+    console.log(postInfo);
+    //createPost(postInfo);
+    //alert("Post has been created");
     res.redirect("user-dashboard.html");
+    //res.redirect("login.html");
 });
+
+
 
 
 module.exports = router
