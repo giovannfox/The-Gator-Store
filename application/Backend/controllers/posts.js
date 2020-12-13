@@ -5,9 +5,7 @@
 var express = require('express');
 var router = express.Router()
 const posts = require('../models/post');
-var aws = require('aws-sdk')
-var multer = require('multer')
-var multerS3 = require('multer-s3')
+
 var upload = multer()
 
 /**
@@ -26,13 +24,13 @@ router.get('/:postId', async (req, res) => {
  * Before it does anything checks if user is logged in
  */
  
-router.post('/',upload.any("file"), function(req,res,){
+router.post('/', (req,res,next)=>{validateCookie(req,res,next)},upload.any("file"), function(req,res,next){
     var postInfo = req.body;
     postInfo["url"] = "hey";
     console.log(postInfo);
     //createPost(postInfo);
     //alert("Post has been created");
-    res.redirect("user-dashboard.html");
+    //res.redirect("user-dashboard.html");
     //res.redirect("login.html");
 });
 
