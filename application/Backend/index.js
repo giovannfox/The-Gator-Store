@@ -13,9 +13,7 @@ const user = require('./controllers/users.js');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
-var aws = require('aws-sdk')
-var multer = require('multer')
-var multerS3 = require('multer-s3')
+
 
 const PORT = 3000;
 
