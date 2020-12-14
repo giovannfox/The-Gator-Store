@@ -15,26 +15,6 @@ const {
 } = require("bcrypt");
 const JWT_SECRET = "CO0KIE_secret"
 
-/**
- * 
- * @param {*} req 
- * @param {*} res 
- * @param {*} next 
- */
-const validateCookie = async(req,res,next)=>{
-    const cookies = req.cookies
-    
-    const token = cookies && cookies.token
-    try{
-        const decode = jwt.verify(token, JWT_SECRET);
-        return next();
-    }catch(e){
-        console.log("error decoding:", e);
-        res.redirect("login.html")
-        return res.status(400).send(e.message)
-    }
-}
-
 
 /**
  * Registration route.

@@ -33,6 +33,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+//app.use(multer());
 
 /* Main router to controllers */
 app.use('/', express.static(path.join(__dirname, "./../Frontend/Horizontal_Prototype/")));

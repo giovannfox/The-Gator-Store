@@ -5,6 +5,9 @@
 var express = require('express');
 var router = express.Router()
 const posts = require('../models/post');
+//var aws = require('aws-sdk');
+var multer = require('multer');
+//var multerS3 = require('multer-s3');
 
 var upload = multer()
 
@@ -23,18 +26,27 @@ router.get('/:postId', async (req, res) => {
  * Recieves information for creating post, then will be redirect to user-dashboard 
  * Before it does anything checks if user is logged in
  */
- 
-router.post('/', (req,res,next)=>{validateCookie(req,res,next)},upload.any("file"), function(req,res,next){
+
+router.post('/', async(req,res,next)=>{validateCookie(req,res,next)},async(req,res,next)=>{
     var postInfo = req.body;
     postInfo["url"] = "hey";
-    console.log(postInfo);
     //createPost(postInfo);
-    //alert("Post has been created");
-    //res.redirect("user-dashboard.html");
-    //res.redirect("login.html");
+    res.redirect("user-dashboard.html");
 });
 
-
+const validateCookie = async(req,res,next)=>{
+    const cookies = req.cookies
+    
+    const token = cookies && cookies.token
+    try{
+        const decode = jwt.verify(token, JWT_SECRET);
+        return next();
+    }catch(e){
+        console.log("error decoding:", e);
+        res.redirect("login.html")
+        return res.status(400).send(e.message)
+    }
+}
 
 
 module.exports = router
