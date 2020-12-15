@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({
 app.use("/", express.static(path.join(__dirname, "./../Frontend/Horizontal_Prototype/")));
 app.use("/about", express.static(path.join(__dirname, "./../Frontend/About-individual-pages/")));
 app.use("/search", search);
-app.use("/post", post);
+app.use("/post", post,validateCookie);
 app.use("/user", user)
 
 /**
