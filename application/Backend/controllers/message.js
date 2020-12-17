@@ -2,23 +2,22 @@ var express = require('express');
 var router = express.Router();
 const { validateCookie } = require("../helpers/getUserCookie");
 const {upload} = require("../awsConnection.js");
-var m = require("../models/messageModel.js");
+const
+{insertMessage,
+//getMessages
+} = require("../models/messageModel.js");
 
-router.post("/",(req,res,next)=>{validateCookie(req,res,next)},upload.none(), async(req,res)=>{
-    //m.insertMessage
+router.post("/",upload.none(), async(req,res)=>{
     const post_id = req.body.postid;
     const message = req.body.message;
-    console.log(post_id)
-    console.log(message)
-    const messageInserted = await m.insertMessage(post_id,message)
+    const messageInserted = await insertMessage(post_id,message,32)
     if(messageInserted==false)
         return res
             .status(400)
             .json({
                 "message": "Error Inserting Message."
             });
-
-    return res.re; 
+    return; 
 })
 
 module.exports = router

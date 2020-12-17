@@ -63,15 +63,18 @@ const getPostDetails = async (postId) => {
 /**
  *
  * @param {Object} postInfo Contains title, description, image, & price of post
- * @returns void
+ * @returns true if successful or false if not
  */
-const createPost = async()=>{
+const createPost = async(title,category,price,description,image,userId)=>{
     const client = db.client()
-    var post = "INSERT INTO `Posts` (title, category_id, price, description) VALUES(fedora,4,11,brand new)";
-    client.query(post, function (err, result) {
-        if(err) throw err
-        console.log("Post added");
-    });
+    try{
+        await client.query(
+            "INSERT INTO `Posts` (`title`, `category_id`, `price`, `description`, `image`,`user_id`) VALUES ('"+title+"','"+category+"','"+price+"','"+description+"','"+image+"','"+userId+"');");
+    }catch(error){
+        console.log(error)
+        return false;
+    }
+    return true
 }
 
 module.exports = {

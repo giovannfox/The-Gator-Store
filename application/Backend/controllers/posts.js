@@ -6,7 +6,7 @@ var express = require('express');
 var router = express.Router()
 const posts = require('../models/post');
 const { validateCookie } = require("../helpers/getUserCookie");
-const {upload} = require("../awsConnection.js");
+const {upload,url,itemkey} = require("../awsConnection.js");
 const{itemKey} = require("../awsConnection.js");
 
 
@@ -28,18 +28,19 @@ router.get('/:postId', async (req, res) => {
  * Recieves information for creating post, then will be redirect to user-dashboard 
  * Before it does anything checks if user is logged in
  */
-/*
+
 router.post('/',upload.any("file"), async(req,res)=>{
-    //test();
-    //console.log(itemKey);
-    console.log(req.body);
-    var postInfo = req.body;
-   // console.log("https://csc648-team2.s3-us-west-1.amazonaws.com/"+date+".jpg");
-    //postInfo["url"] = "hey";
-    posts.createPost();
-    //res.redirect("user-dashboard.html");
+    const postInserted = await posts.createPost(req.body.title, 4,req.body.price, req.body.description, url,32);
+    if(postInserted==false)
+        return res
+            .status(400)
+            .json({
+                "message": "Error Inserting Post."
+            });
+    res.redirect("user-dashboard.html");
+    return;
 });
-*/
+
 
 
 module.exports = router
