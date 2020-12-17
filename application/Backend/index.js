@@ -12,6 +12,8 @@ const post = require('./controllers/posts.js');
 const user = require('./controllers/users.js');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+const { validateCookie } = require("./helpers/getUserCookie");
 
 const PORT = 3000;
 
@@ -25,15 +27,16 @@ db.connect();
 /***MIDDLEWARE******/
 app.use(morgan("dev"));
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 
 /* Main router to controllers */
-app.use('/', express.static(path.join(__dirname, "./../Frontend/Horizontal_Prototype/")));
-app.use('/about', express.static(path.join(__dirname, "./../Frontend/About-individual-pages/")));
-app.use('/search', search);
-app.use('/post', post);
+app.use("/", express.static(path.join(__dirname, "./../Frontend/Horizontal_Prototype/")));
+app.use("/about", express.static(path.join(__dirname, "./../Frontend/About-individual-pages/")));
+app.use("/search", search);
+app.use("/post", post);
 app.use("/user", user)
 
 /**
