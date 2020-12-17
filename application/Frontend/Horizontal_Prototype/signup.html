@@ -105,23 +105,23 @@
 
 
         <div id="around_the_form">
-            <form action="/signup" method="POST" class="formPost">
+            <form id="registrationForm" action="/user/register" method="POST" enctype="application/x-www-form-urlencoded" class="formPost">
 
                 <div class="container">
-                <label for="firstname"><i></i></label>
-                <input name="firstname" type="text" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder=" &#xf007; First Name" required/>
+                <label for="firstName"><i></i></label>
+                <input id="firstName" name="firstName" type="text" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder=" &#xf007; First Name" required/>
                 <br>
-                <label for="lastname"><i></i></label>
-                <input name="lastname" type="text" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf007; Last Name" required/>
+                <label for="lastName"><i></i></label>
+                <input id="lastName" name="lastName" type="text" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf007; Last Name" required/>
                 <br>
                 <label for="email"><i></i></label>
-                <input class="text" name="email" type="email" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf0e0; Email (sfsu.edu)"required/>
+                <input id="email" class="text" name="email" type="email" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf0e0; Email (sfsu.edu)" required/>
                 <br>
                 <label for="password"><i></i></label>
-                <input name="password" type="password" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf023; Password" required/>
+                <input id="password" name="password" type="password" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf023; Password" required/>
                 <br>
-                <label for="confirmpassword"><i></i></label>
-                <input name="password" type="password" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf023; Confirm Password" required/>
+                <!-- <label for="confirmpassword"><i></i></label>
+                <input name="password" type="password" style="margin-left:38px; font-family:Helvetica, 'FontAwesome', sans-serif;" placeholder="&#xf023; Confirm Password" required/> -->
                 <br>
                 <div class="" style="margin-left:65px;">
                     <label class="form-ckeck-label">
@@ -139,7 +139,7 @@
               </div>
                 </div> -->
                 <br>
-                <input class="btn-secondary" type="submit" style="margin-top:10px;"value="SignUp" placeholder="SignUp"></input>
+                <input id="btn" class="btn-secondary" type="submit" style="margin-top:10px;"value="SignUp" placeholder="SignUp"></input>
             </div>
                 <div class="" style="margin-top:5px; margin-left:200px;">
                     Already have an account? 
@@ -148,6 +148,8 @@
             </form>
             
         </div>  
+
+
              <!-- bottom navbar -->
         <div class="footer" style="background-color:#D0D0D0;">
         <div class="navbar bottom navbar-expand-lg navbar-light justify-content-center">
