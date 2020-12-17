@@ -6,11 +6,12 @@ var express = require('express');
 var router = express.Router()
 const posts = require('../models/post');
 const { validateCookie } = require("../helpers/getUserCookie");
-//var aws = require('aws-sdk');
-var multer = require('multer');
-//var multerS3 = require('multer-s3');
+const {upload} = require("../awsConnection.js");
+const{itemKey} = require("../awsConnection.js");
 
-var upload = multer()
+
+
+
 
 /**
  * Used to get each off the post details.
@@ -27,13 +28,18 @@ router.get('/:postId', async (req, res) => {
  * Recieves information for creating post, then will be redirect to user-dashboard 
  * Before it does anything checks if user is logged in
  */
-
-router.post('/', async(req,res,next)=>{validateCookie(req,res,next)},async(req,res,next)=>{
+/*
+router.post('/',upload.any("file"), async(req,res)=>{
+    //test();
+    //console.log(itemKey);
+    console.log(req.body);
     var postInfo = req.body;
-    console.log(re.user.id);
+   // console.log("https://csc648-team2.s3-us-west-1.amazonaws.com/"+date+".jpg");
     //postInfo["url"] = "hey";
-    //createPost(postInfo);
-    res.redirect("user-dashboard.html");
+    posts.createPost();
+    //res.redirect("user-dashboard.html");
 });
+*/
+
 
 module.exports = router

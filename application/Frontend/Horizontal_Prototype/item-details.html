@@ -128,11 +128,12 @@
                   <p id="description"></p>
 
                   <h5 class="my-3"><strong>Message seller</strong></h5>
-                  <form>
-                    <div class="form-group">
-                      <textarea class="form-control" id="messageToSeller" rows="4"></textarea>
+                  <form name ="messageForm" method = "POST" action = "/message" id = "messageForm" onSubmit=sendMessage()>
+                    <div class="form-group" name = "form-group" id="form-group">
+                      <input type="textarea" name = "messagedetail" claYss="form-control" id="messageToSeller" row=4></input>
+                      <input type="hidden" name="item_id" value=>
                     </div>
-                    <button type="submit" class="btn btn-success">Send Message</button>
+                    <button type="submit" class="btn btn-success" >Send Message</button>
                   </form>
               </div>
         
@@ -188,7 +189,24 @@
         }
 
         itemDetails();
+        
+        
 
+       async function sendMessage(){
+          event.preventDefault();
+          var message = document.getElementById("messageToSeller").value;
+          const url = new URL(window.location.href);
+          const postId = url.searchParams.get("id");
+          formData = new FormData();
+          formData.append('postid',postId);
+          formData.append("message",message);
+
+          var messageData =  new XMLHttpRequest();
+          messageData.open("POST", "/message");
+          messageData.send(formData);
+          console.log(formData);
+          location.reload(true);
+        }
       </script>
 
     </body>

@@ -65,9 +65,9 @@ const getPostDetails = async (postId) => {
  * @param {Object} postInfo Contains title, description, image, & price of post
  * @returns void
  */
-const createPost = (postInfo)=>{
+const createPost = async()=>{
     const client = db.client()
-    var post = "INSERT INTO `Posts` (date, title, category_id, price, description, image) VALUES()";
+    var post = "INSERT INTO `Posts` (title, category_id, price, description) VALUES(fedora,4,11,brand new)";
     client.query(post, function (err, result) {
         if(err) throw err
         console.log("Post added");

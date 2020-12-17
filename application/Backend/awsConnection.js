@@ -3,12 +3,15 @@ const multer = require('multer')
 const multerS3 = require('multer-s3')
 //const { access } = require('fs');
 
-const awsClient = new AWS({
+aws.config.update({
     secretAccessKey: 'yL34r0Gf7cghRBgCeafJsNwg0SUFE2mkBvQSBA2d',
     accessKeyId: 'AKIAVG3MBBRV5B4UXZXK',
     region: 'us-west-1' 
 });
 
+const awsClient = new aws.S3();
+var date = Date.now().toString();
+var item=""; 
 
 var upload = multer({
     storage: multerS3({
@@ -19,11 +22,10 @@ var upload = multer({
             cb(null,{fieldName:file.fieldname});
         },
         key: function(req,file,cb){
-            cb(null,file.originalname);
+            cb(null,date+ '-'+file.originalname);
         }
     })
-})
-
-module.exports ={
-    
-}
+});
+itemKey = multerS3.key;
+var itemkey = date.concat("-"+item);
+module.exports = {upload, itemkey }
