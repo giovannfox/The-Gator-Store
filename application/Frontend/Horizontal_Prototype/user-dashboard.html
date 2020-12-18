@@ -126,7 +126,7 @@
           <!-- <div class="row"></div> -->
            <!-- <div class="container"> -->
             <!-- table content - posts and messages -->
-            <h3 class="mb-2 text-center">Messages</h3>
+            <h3 class="mb-2 text-center">Message Inbox</h3>
             <div class="row">
               
               <div id="count" class="col m-3"></div>
@@ -351,11 +351,12 @@
           document.getElementById("welcome").innerHTML = "Welcome back, " + payload.email + "!"
 
           let msgData = new XMLHttpRequest();
-          msgData.open("get", "http://localhost:3000/message/get/seller/" + userId);
+          msgData.open("get", "http://localhost:3000/message/get/seller/32"); //+ userId);
           msgData.send();
 
-          
-
+          // take all msg and post ids and store them into array
+          var msgArr = [];
+          var postArr = [];
 
           msgData.onload = function() {
             console.log(msgData.response);
@@ -363,17 +364,77 @@
             
 
             var count = 0; 
+
             msgResponse.results.forEach(item => {
+
+              var msgId = item.message_id;
+              var postId = item.post_id;
+              console.log(item)
+
+              
+
               count++;
               document.getElementById("msgs").innerHTML +=
               "<tr>" +
                 "<th scope='row'>" + count + "</th>" +
-                "<td><a href='item-details.html?id=" + item.post_id + "'>[item name]</a></td>" +
+                "<td><a id='item_name' href='item-details.html?id=" + item.post_id + "'></a></td>" +
                 "<td>" + item.sender_id + "</td>" +
-                "<td>" + item.message_id + "</td>" +
+                "<td id='msg_body'></td>" +
                 
               "</tr>";
+
+              msgArr.push(msgId);
+              postArr.push(postId);
+
+              // need to open get request for each msg id to get message details using message_id
+              let msgDetails = new XMLHttpRequest();
+              msgDetails.open("get", "http://localhost:3000/message/get/message/" + item.message_id);
+              msgDetails.send();
+
+              msgDetails.onload = function() {
+                console.log(msgDetails.response);
+                var res = JSON.parse(msgDetails.responseText);
+
+
+                document.getElementById("msg_body").innerHTML = res.content;
+              }
+
+              let itemDetails = new XMLHttpRequest();
+              itemDetails.open("get", "http://localhost:3000/post/" + item.message_id);
+              itemDetails.send();
+
+              itemDetails.onload = function() {
+                console.log(itemDetails.response);
+                var itemResponse = JSON.parse(itemDetails.responseText);
+
+                document.getElementById("item_name").innerHTML = itemResponse.title;
+              }
+
+              
+              
             });
+
+            
+
+                
+            //     document.getElementById("item_name").innerHTML = itemResponse.title;
+            //   }
+            // var f = (function(){
+            //     var xhr = msgArr;
+            //     for(i = 0; i < msgArr.length; i++){ //for loop
+            //         (function(i){
+            //             xhr[i] = new XMLHttpRequest();
+            //             url = "http://localhost:3000/message/get/message/" + i;
+            //             xhr[i].open("GET", url, true);
+            //             xhr[i].onreadystatechange = function(){
+            //                 if (xhr[i].readyState === 4 && xhr[i].status === 200){
+            //                     console.log('Response from request ' + i + ' [ ' + xhr[i].responseText + ']'); 
+            //                 }
+            //             };
+            //             xhr[i].send();
+            //         })(i);
+            //     }
+            // })();
 
             document.getElementById("count").innerHTML += 
               "Number of messages: " + count;
