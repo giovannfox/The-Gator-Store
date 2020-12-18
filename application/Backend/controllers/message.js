@@ -9,7 +9,8 @@ const {
 const {
     insertMessage,
     getMessagesBySellerId,
-    getMessagesByBuyerId
+    getMessagesByBuyerId, 
+    getMessagesByMessageId
 } = require("../models/messageModel.js");
 
 router.post("/create", validateCookie, async (req, res) => {
@@ -42,6 +43,24 @@ router.get("/get/seller/:userId", async (req, res) => {
             });
     return res.json({
         ...messages
+    });
+})
+/**
+ * Route For getting the content of the message
+ */
+router.get("/get/message/:messageId", async(req,res)=>{
+    const message_id = req.params.messageId;
+    console.log(message_id)
+    const messages = await getMessagesByMessageId(message_id);
+    if(!messages)
+        return res
+            .status(400)
+            .json({
+                "message": "Error finding messages."
+            });
+    return res.json({
+        ...messages
+
     });
 })
 

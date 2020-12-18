@@ -15,7 +15,9 @@ const insertMessage = async (postId, content, sender_id) => {
     }
     return true;
 }
-
+/*
+* Returns all Messages that where sent to this userID 
+*/
 
 const getMessagesBySellerId = async (userId) => {
     const client = db.client()
@@ -35,10 +37,30 @@ const getMessagesBySellerId = async (userId) => {
 }
 
 
+/*
+* returns all the messages sent by this user 
+*/
+
 const getMessagesByBuyerId = async (userId) => {
     const client = db.client()
 
-    const promiseObject = client.query("SELECT Messages.id as message_id, post_id, sender_id from Messages JOIN Posts P on P.id = Messages.post_id JOIN Users U on U.id = Messages.sender_id WHERE sender_id = '" + userId + "';")
+    const promiseObject = client.query("SELECT Message.content AND User.email as message_id, post_id, sender_id from Messages JOIN Posts P on P.id = Messages.post_id JOIN Users U on U.id = Messages.sender_id WHERE sender_id = '" + userId + "';")
+        .then(([results, _fields]) => {
+            return {
+                results
+            }
+        })
+        .catch((err) => {
+            console.log(err)
+            if (err) throw err
+            res.status(500).send(err)
+        });
+    return promiseObject;
+}
+
+const getMessagesByMessageId  = async(messageId)=>{
+    const client = db.client()
+    const promiseObject = client.query("SELECT Messages.content FROM Messages WHERE Messages.id ='"+ messageId + "';")
         .then(([results, _fields]) => {
             return {
                 results
@@ -55,5 +77,6 @@ const getMessagesByBuyerId = async (userId) => {
 module.exports = {
     insertMessage,
     getMessagesBySellerId,
-    getMessagesByBuyerId
+    getMessagesByBuyerId,
+    getMessagesByMessageId
 }

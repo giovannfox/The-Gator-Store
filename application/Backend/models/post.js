@@ -8,7 +8,7 @@ const db = require('../dbConnection');
  */
 const searchPostsByCategory = (searchKey, Category = null) => {
     const client = db.client()
-    const promiseObject = client.query("SELECT `Posts`.id, title, image, instructor, course, price FROM dev.Posts  JOIN dev.Categories on dev.Posts.`category_id`= dev.Categories.`ID` WHERE `approval_flag`=1 AND `Category` LIKE '%" + Category + "%' AND (`title` LIKE '%" + searchKey + "%' OR `description` LIKE '%" + searchKey + "%' OR `instructor` LIKE '%" + searchKey + "%' OR `course` LIKE '%" + searchKey + "%') ORDER BY visits DESC limit 20;")
+    const promiseObject = client.query("SELECT `Posts`.id, title, image, instructor, course, price FROM Posts  JOIN Categories on Posts.`category_id`= Categories.`ID` WHERE `approval_flag`=1 AND `Category` LIKE '%" + Category + "%' AND (`title` LIKE '%" + searchKey + "%' OR `description` LIKE '%" + searchKey + "%' OR `instructor` LIKE '%" + searchKey + "%' OR `course` LIKE '%" + searchKey + "%') ORDER BY visits DESC limit 20;")
         .then(([results, fields]) => {
             return {
                 searchKey,
@@ -30,7 +30,7 @@ const searchPostsByCategory = (searchKey, Category = null) => {
 const getPosts = () => {
     const client = db.client()
 
-    const promiseObject = client.query("SELECT `Posts`.id, title, image, instructor, course, price FROM dev.Posts WHERE `approval_flag`=1 ORDER BY visits DESC limit 20;")
+    const promiseObject = client.query("SELECT `Posts`.id, title, image, instructor, course, price FROM Posts WHERE `approval_flag`=1 ORDER BY visits DESC limit 20;")
         .then(([results, fields]) => {
             return {
                 searchKey: null,
@@ -53,7 +53,7 @@ const getPosts = () => {
 const getPostDetails = async (postId) => {
     const client = db.client()
 
-    const [results] = await client.query("SELECT `Posts`.id,  title, description, image, instructor, course, price FROM dev.Posts WHERE `ID` = " + postId + " ;");
+    const [results] = await client.query("SELECT `Posts`.id,  title, description, image, instructor, course, price FROM Posts WHERE `ID` = " + postId + " ;");
 
     if (!results[0]) throw results
 
