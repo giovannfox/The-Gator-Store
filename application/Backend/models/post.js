@@ -60,8 +60,26 @@ const getPostDetails = async (postId) => {
     return results[0];
 }
 
+/**
+ *
+ * @param {Object} postInfo Contains title, description, image, & price of post
+ * @returns true if successful or false if not
+ */
+const createPost = async(title,category,price,description,image,userId)=>{
+    const client = db.client()
+    try{
+        await client.query(
+            "INSERT INTO `Posts` (`title`, `category_id`, `price`, `description`, `image`,`user_id`) VALUES ('"+title+"','"+category+"','"+price+"','"+description+"','"+image+"','"+userId+"');");
+    }catch(error){
+        console.log(error)
+        return false;
+    }
+    return true
+}
+
 module.exports = {
     searchPostsByCategory,
     getPosts,
-    getPostDetails
+    getPostDetails,
+    createPost
 }

@@ -43,7 +43,8 @@ router.post('/register', async (req, res) => {
     const isUserExists = await userExists(email)
 
     if (isUserExists)
-        return res
+
+    return res
             .status(400)
             .json({
 
@@ -93,7 +94,7 @@ router.post('/login', async (req, res) => {
         expiresIn: "1h"
     })
 
-    return res.status(200).cookie("token", signedCookie).jsonp(user);
+    return res.status(200).cookie("token", signedCookie).redirect("/user-dashboard.html").jsonp(user);
 });
 
 /**
