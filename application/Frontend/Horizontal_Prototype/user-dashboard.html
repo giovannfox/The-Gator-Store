@@ -351,7 +351,8 @@
           document.getElementById("welcome").innerHTML = "Welcome back, " + payload.email + "!"
 
           let msgData = new XMLHttpRequest();
-          msgData.open("get", "http://localhost:3000/message/get/seller/" + userId);
+          //msgData.open("get", "http://localhost:3000/message/get/seller/" + userId);
+          msgData.open("get", "http://35.163.149.5:3000/message/get/seller/" + userId);
           msgData.send();
 
           
