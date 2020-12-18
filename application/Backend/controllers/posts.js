@@ -5,21 +5,25 @@
 var express = require('express');
 var router = express.Router()
 const posts = require('../models/post');
-const { validateCookie } = require("../helpers/getUserCookie");
-const {upload,url,itemkey} = require("../awsConnection.js");
-const{itemKey} = require("../awsConnection.js");
-
-
-
-
+const {
+    validateCookie
+} = require("../helpers/getUserCookie");
+const {
+    upload,
+    url,
+    itemkey
+} = require("../awsConnection.js");
+const {
+    itemKey
+} = require("../awsConnection.js");
 
 /**
  * Used to get each off the post details.
  */
 router.get('/:postId', async (req, res) => {
     const itemDetails = posts.getPostDetails(req.params.postId)
-    .then((res) => res)
-    .catch((err)=> res.status(500).send(err));
+        .then((res) => res)
+        .catch((err) => res.status(500).send(err));
 
     res.jsonp(await (itemDetails));
 });
@@ -29,14 +33,16 @@ router.get('/:postId', async (req, res) => {
  * Before it does anything checks if user is logged in
  */
 
-router.post('/',upload.any("file"), async(req,res)=>{
-    const postInserted = await posts.createPost(req.body.title, 4,req.body.price, req.body.description, url,32);
-    if(postInserted==false)
+router.post('/', validateCookie, upload.any("file"), async (req, res) => {
+    const userId = req.user && req.user.id
+    const postInserted = await posts.createPost(req.body.title, 4, req.body.price, req.body.description, url, userId);
+    if (postInserted == false)
         return res
             .status(400)
             .json({
                 "message": "Error Inserting Post."
             });
+
     res.redirect("user-dashboard.html");
     return;
 });

@@ -10,10 +10,10 @@ const validateCookie = (req, res, next) => {
     const decoded = jwt.decode(token, JWT_SECRET)
 
     if (!decoded){ 
-        res.redirect("login.html");
-        return res.status(403).json({
-            message: "You are not logged in!"
-        })
+        return res.redirect("/login.html");
+        // return res.status(403).json({
+        //     message: "You are not logged in!"
+        // });
     }
 
     req.user = decoded
