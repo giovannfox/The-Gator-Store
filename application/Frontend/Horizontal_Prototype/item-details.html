@@ -128,7 +128,7 @@
                   <p id="description"></p>
 
                   <h5 class="my-3"><strong>Message seller</strong></h5>
-                  <form name ="messageForm" method = "POST" action = "/message" id = "messageForm" onSubmit=sendMessage()>
+                  <form name ="messageForm" method = "POST" action = "/message/create" id = "messageForm" onSubmit=sendMessage()>
                     <div class="form-group" name = "form-group" id="form-group">
                       <textarea type="textarea" name = "messagedetail" class="form-control" id="messageToSeller" row="4"></textarea>
                     </div>
@@ -201,7 +201,7 @@
           formData.append("message",message);
 
           var messageData =  new XMLHttpRequest();
-          messageData.open("POST", "/message");
+          messageData.open("POST", "/create");
           messageData.send(formData);
           console.log(formData);
           location.reload(true);
