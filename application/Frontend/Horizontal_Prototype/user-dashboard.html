@@ -100,7 +100,11 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="/user-dashboard.html">My Dashboard</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item text-danger" href="#">Logout</a>
+                  <!-- form input for logout -->
+                  <!-- <a class="dropdown-item text-danger" href="#">Logout</a> -->
+                  <form action="/user/logout" method="GET">
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                  </form>
                 </div>
               </li>
               <!-- <li class="nav-item">
@@ -116,7 +120,7 @@
       <!-- dashboard -->
       <div class="p-5">
 
-          <h1 class="mb-2 text-center">Welcome back, [user]</h1>
+          <h1 class="mb-2 text-center">Welcome back!</h1>
           <hr>
 
           <!-- <div class="row"></div> -->
@@ -275,6 +279,13 @@
 
           <!-- </div> -->
       </div>
+
+
+      <script>
+        
+
+      </script>
+
 
       <!-- bottom navbar -->
       <nav class="navbar bottom navbar-expand-lg navbar-light bg-light justify-content-center">
