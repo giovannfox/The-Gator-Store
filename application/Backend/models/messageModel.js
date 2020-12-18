@@ -8,7 +8,7 @@ const insertMessage = async (postId, content, sender_id) => {
     const client = db.client()
     try {
         await client.query(
-            "INSERT INTO `production`.`Messages` ( `post_id`, `sender_id`, `content`) VALUES ( '" + postId + "', '" + sender_id + "', '" + content + "');");
+            "INSERT INTO `dev`.`Messages` ( `post_id`, `sender_id`, `content`) VALUES ( '" + postId + "', '" + sender_id + "', '" + content + "');");
     } catch (error) {
         console.log(error)
         return false;
