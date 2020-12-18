@@ -201,7 +201,7 @@
           formData.append("message",message);
 
           var messageData =  new XMLHttpRequest();
-          messageData.open("POST", "/message");
+          messageData.open("POST", "/message/create");
           messageData.send(formData);
           console.log(formData);
           location.reload(true);
