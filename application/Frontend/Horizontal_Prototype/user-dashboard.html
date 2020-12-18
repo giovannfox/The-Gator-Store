@@ -120,16 +120,43 @@
       <!-- dashboard -->
       <div class="p-5">
 
-          <h1 class="mb-2 text-center">Welcome back!</h1>
+          <h1 id="welcome" class="mb-2 text-center"></h1>
           <hr>
 
           <!-- <div class="row"></div> -->
            <!-- <div class="container"> -->
             <!-- table content - posts and messages -->
+            <h3 class="mb-2 text-center">Messages</h3>
             <div class="row">
+              
+              <div id="count" class="col m-3"></div>
+
+              <table class="table">
+
+                <thead>
+                  <th scope="col"></th>
+                  <th scope="col">Item</th>
+                  <th scope="col">Sender ID</th>
+                  <th scope="col">Message Content</th>
+                  <th scope="col">Date Received</th>
+                </thead>
+
+                <!-- load messages into body of table -->
+
+                <tbody id="msgs"></tbody>
+
+              </table>
+
+
+              
+
+
+
+
+
 
               <!-- all posts made by user -->
-              <div class="col-6">
+              <!-- <div class="col-6">
                 <h3 class="mb-2 text-center">Posts</h3>
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <div class="table-responsive">
@@ -152,11 +179,11 @@
                         <td>Approved</td>
                         <td>3</td>
                         <td>
-                          <!-- <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"> -->
-                            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+                          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"> -->
+                            <!-- <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a> -->
                             <!-- <button type="button" class="btn btn-primary btn-sm nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">See all messages</button> -->
-                          <!-- </div> -->
-                        </td>
+                          <!-- </div>
+                         </td>
                       </tr>
                       <tr>
                         <th scope="row">2</th>
@@ -164,12 +191,12 @@
                         <td>Books</td>
                         <td>Approved</td>
                         <td>3</td>
-                        <td>
+                        <td> -->
                           <!-- <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"> -->
-                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+                            <!-- <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a> -->
                             <!-- <button type="button" class="btn btn-primary btn-sm nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">See all messages</button> -->
                           <!-- </div> -->
-                        </td> 
+                        <!-- </td> 
                       </tr>
                       <tr>
                         <th scope="row">3</th>
@@ -177,22 +204,22 @@
                         <td>Books</td>
                         <td>Approved</td>
                         <td>3</td>
-                        <td>
+                        <td> -->
                           <!-- <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"> -->
-                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+                            <!-- <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> -->
                             <!-- <button type="button" class="btn btn-primary btn-sm nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">See all messages</button> -->
                           <!-- </div> -->
-                        </td>
+                        <!-- </td>
                       </tr>
                       
                     </tbody>
                   </table>
                 </div>
                 </div>
-              </div>
+              </div> -->
 
               <!-- all messages sent to user on respective posts -->
-              <div class="col-6">
+              <!-- <div class="col-6">
                 <h3 class="mb-2 text-center">Messages</h3>
 
                 <div class="tab-content" id="v-pills-tabContent">
@@ -228,14 +255,14 @@
                   <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
                   <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
                   <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-                </div>
+                </div> -->
                 
                 
-                <script>
+                <!-- <script>
                   $(function () {
                     $('#myTab li:last-child a').tab('show')
                   })
-                </script>
+                </script> -->
 
                 <!-- <div class="table-responsive">
                   <table class="table table-fixed table-hover">
@@ -273,7 +300,7 @@
                     </tbody>
                   </table>
                 </div> -->
-              </div>
+              <!-- </div> -->
 
             </div>
 
@@ -283,6 +310,80 @@
 
       <script>
         
+        async function allMsgs() {
+          // need to get userId from cookie
+          function parseJwt(token) {
+              var base64Url = token.split('.')[1];
+              var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+              var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                  return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+              }).join(''));
+
+              return JSON.parse(jsonPayload);
+          };
+
+          function getCookie(c) {
+            var name = c + "=";
+            var decoded = decodeURIComponent(document.cookie);
+            var array = decoded.split(';');
+            for (var i = 0; i < array.length; i++) {
+              var temp = array[i];
+              while (temp.charAt(0) == ' ') {
+                temp = temp.substring(1);
+              }
+              if (temp.indexOf(name) == 0) {
+                return temp.substring(name.length, temp.length);
+              }
+            }
+            return "";
+          }
+          
+          // get the cookie value
+          var cookieVal = getCookie("token");
+
+          // parse the token and decode jwt
+          var payload = parseJwt(getCookie("token"));
+ 
+          // console.log(payload);
+
+          const userId = payload.id;
+
+          document.getElementById("welcome").innerHTML = "Welcome back, " + payload.email + "!"
+
+          let msgData = new XMLHttpRequest();
+          msgData.open("get", "http://localhost:3000/message/get/seller/" + userId);
+          msgData.send();
+
+          
+
+
+          msgData.onload = function() {
+            console.log(msgData.response);
+            var msgResponse = JSON.parse(msgData.responseText);
+            
+
+            var count = 0; 
+            msgResponse.results.forEach(item => {
+              count++;
+              document.getElementById("msgs").innerHTML +=
+              "<tr>" +
+                "<th scope='row'>" + count + "</th>" +
+                "<td><a href='item-details.html?id=" + item.post_id + "'>[item name]</a></td>" +
+                "<td>" + item.sender_id + "</td>" +
+                "<td>" + item.message_id + "</td>" +
+                
+              "</tr>";
+            });
+
+            document.getElementById("count").innerHTML += 
+              "Number of messages: " + count;
+
+          }
+
+
+        }
+
+        allMsgs();
 
       </script>
 
