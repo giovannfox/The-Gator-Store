@@ -16,16 +16,11 @@ const insertMessage = async(postId,content,sender_id)=>{
     return true;
 }
 
-/*
-const getMessages=async(userId=32)=>{
+const getMessages=async(userId=4)=>{
     const client =db.client() 
 
     const promiseObject = client.query(
-        "SELECT Messages.id as message_id, post_id, sender_id
-        from Messages
-        JOIN Posts P on P.id = Messages.post_id
-        JOIN Users U on U.id = Messages.sender_id
-        WHERE sender_id = '"+userId+"';")
+        "SELECT Messages.id as message_id, post_id, content, sender_id from Messages JOIN Posts P on P.id = Messages.post_id JOIN Users U on U.id = Messages.sender_id WHERE  P.user_id='"+userId+"';")
             .then(([results,fields])=>{
                 return{
                     results
@@ -38,9 +33,8 @@ const getMessages=async(userId=32)=>{
              });
     return promiseObject;
 }
-*/
 
 module.exports = {
     insertMessage,
-    //getMessages
+    getMessages
 }

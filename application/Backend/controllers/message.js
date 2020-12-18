@@ -4,7 +4,7 @@ const { validateCookie } = require("../helpers/getUserCookie");
 const {upload} = require("../awsConnection.js");
 const
 {insertMessage,
-//getMessages
+getMessages
 } = require("../models/messageModel.js");
 
 router.post("/",upload.none(), async(req,res)=>{
@@ -17,6 +17,7 @@ router.post("/",upload.none(), async(req,res)=>{
             .json({
                 "message": "Error Inserting Message."
             });
+            console.log(await getMessages(4))
     return; 
 })
 
