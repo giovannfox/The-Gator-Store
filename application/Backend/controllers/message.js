@@ -13,7 +13,7 @@ const {
     getMessagesByMessageId
 } = require("../models/messageModel.js");
 
-router.post("/create", validateCookie, async (req, res) => {
+router.post("/create", validateCookie,upload.none(), async (req, res) => {
     const postId = req.body.postid;
     const message = req.body.message;
     const userId = req.user.id;
