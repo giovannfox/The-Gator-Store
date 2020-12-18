@@ -13,6 +13,9 @@ const jwt = require('jsonwebtoken');
 const {
     compare
 } = require("bcrypt");
+const {
+    validateCookie
+} = require("../helpers/getUserCookie");
 const JWT_SECRET = "CO0KIE_secret"
 
 
@@ -101,6 +104,6 @@ router.post('/login', async (req, res) => {
  * Logout route.
  * Author: Ramy Fekry
  */
-router.get('/logout', async (_req, res) => res.status(200).clearCookie("token").redirect("/home.html"));
+router.get('/logout', validateCookie, async (_req, res) => res.status(200).clearCookie("token").redirect("/home.html"));
 
 module.exports = router
