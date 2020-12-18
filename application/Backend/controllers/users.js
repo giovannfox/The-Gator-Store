@@ -52,7 +52,8 @@ router.post('/register', async (req, res) => {
     const isUserExists = await userExists(email)
 
     if (isUserExists)
-        return res
+
+    return res
             .status(400)
             .json({
 
