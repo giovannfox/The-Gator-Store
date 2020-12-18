@@ -19,12 +19,6 @@ const {
 const JWT_SECRET = "CO0KIE_secret"
 
 
-router.get("/private", validateCookie, (req, res) => {
-    console.log("To get the user logged in use this: 'req.user'", req.user);
-
-    res.json(req && req.user);
-})
-
 /**
  * Registration route.
  * checks for mail.sfsu.edu
@@ -103,7 +97,7 @@ router.post('/login', async (req, res) => {
         expiresIn: "1h"
     })
 
-    return res.status(200).cookie("token", signedCookie).jsonp(user);
+    return res.status(200).cookie("token", signedCookie).redirect("/user-dashboard.html").jsonp(user);
 });
 
 /**
