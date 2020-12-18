@@ -22,7 +22,7 @@ const insertMessage = async (postId, content, sender_id) => {
 const getMessagesBySellerId = async (userId) => {
     const client = db.client()
 
-    const promiseObject = client.query("SELECT Messages.id as message_id, post_id, sender_id from Messages JOIN Posts P on P.id = Messages.post_id JOIN Users U on U.id = Messages.sender_id WHERE P.user_id = '" + userId + "';")
+    const promiseObject = client.query("SELECT content, Messages.id as message_id, post_id, sender_id, data, P.title as post_title from Messages JOIN Posts P on P.id = Messages.post_id JOIN Users U on U.id = Messages.sender_id WHERE P.user_id = '" + userId + "';")
         .then(([results, _fields]) => {
             return {
                 results
@@ -44,7 +44,7 @@ const getMessagesBySellerId = async (userId) => {
 const getMessagesByBuyerId = async (userId) => {
     const client = db.client()
 
-    const promiseObject = client.query("SELECT Message.content AND User.email as message_id, post_id, sender_id from Messages JOIN Posts P on P.id = Messages.post_id JOIN Users U on U.id = Messages.sender_id WHERE sender_id = '" + userId + "';")
+    const promiseObject = client.query("SELECT content, Messages.id as message_id, post_id, sender_id, data, P.title as post_title from Messages JOIN Posts P on P.id = Messages.post_id JOIN Users U on U.id = Messages.sender_id WHERE sender_id = '" + userId + "';")
         .then(([results, _fields]) => {
             return {
                 results
