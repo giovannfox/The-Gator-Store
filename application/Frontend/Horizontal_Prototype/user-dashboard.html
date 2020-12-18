@@ -366,12 +366,13 @@
             var count = 0; 
             msgResponse.results.forEach(item => {
               count++;
+              //console.log(item);
               document.getElementById("msgs").innerHTML +=
               "<tr>" +
                 "<th scope='row'>" + count + "</th>" +
                 "<td><a href='item-details.html?id=" + item.post_id + "'>[item name]</a></td>" +
                 "<td>" + item.sender_id + "</td>" +
-                "<td>" + item.message_id + "</td>" +
+                "<td>" + item.content + "</td>" +
                 
               "</tr>";
             });

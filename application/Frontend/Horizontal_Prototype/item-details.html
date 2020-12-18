@@ -163,7 +163,7 @@
           const postId = url.searchParams.get("id");
 
           let postData = new XMLHttpRequest();
-          // postData.open("get", "http://localhost:3000/post/" + postId);
+          //postData.open("get", "http://localhost:3000/post/" + postId);
            postData.open("get", "http://35.163.149.5:3000/post/" + postId);
           postData.send();
 
@@ -201,7 +201,7 @@
           formData.append("message",message);
 
           var messageData =  new XMLHttpRequest();
-          messageData.open("POST", "/create");
+          messageData.open("POST", "/message/create");
           messageData.send(formData);
           console.log(formData);
           location.reload(true);
