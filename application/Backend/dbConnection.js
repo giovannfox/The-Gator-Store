@@ -12,9 +12,9 @@ const connect = async () => {
         const pool = mysql.createPool({
             host: "35.163.149.5",
             port: "3306",
-            database: "dev",
-            user: "dev",
-            password: "sYYRyoOuk0Et%3&"
+            database: "production",
+            user: "prod",
+            password: "g*KLycT@k3v0pB1"
         });
 
         dbClient = pool.promise();

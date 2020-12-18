@@ -13,6 +13,9 @@ const jwt = require('jsonwebtoken');
 const {
     compare
 } = require("bcrypt");
+const {
+    validateCookie
+} = require("../helpers/getUserCookie");
 const JWT_SECRET = "CO0KIE_secret"
 
 
@@ -43,7 +46,8 @@ router.post('/register', async (req, res) => {
     const isUserExists = await userExists(email)
 
     if (isUserExists)
-        return res
+
+    return res
             .status(400)
             .json({
 
@@ -93,13 +97,13 @@ router.post('/login', async (req, res) => {
         expiresIn: "1h"
     })
 
-    return res.status(200).cookie("token", signedCookie).jsonp(user);
+    return res.status(200).cookie("token", signedCookie).redirect("/user-dashboard.html").jsonp(user);
 });
 
 /**
  * Logout route.
  * Author: Ramy Fekry
  */
-router.get('/logout', async (_req, res) => res.status(200).clearCookie("token").redirect("/home.html"));
+router.get('/logout', validateCookie, async (_req, res) => res.status(200).clearCookie("token").redirect("/home.html"));
 
 module.exports = router

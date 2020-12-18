@@ -12,7 +12,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- bootstrap-select CDN -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-        
     
         <link rel="stylesheet" type="text/css" href="assets/style.css">
 
@@ -101,7 +100,11 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="/user-dashboard.html">My Dashboard</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item text-danger" href="#">Logout</a>
+                  <!-- form input for logout -->
+                  <!-- <a class="dropdown-item text-danger" href="#">Logout</a> -->
+                  <form action="/user/logout" method="GET">
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                  </form>
                 </div>
               </li>
               <!-- <li class="nav-item">
@@ -117,89 +120,273 @@
       <!-- dashboard -->
       <div class="p-5">
 
-          <h1 class="mb-2 text-center">Welcome back, [user]</h1>
+          <h1 id="welcome" class="mb-2 text-center"></h1>
           <hr>
 
- 
+          <!-- <div class="row"></div> -->
+           <!-- <div class="container"> -->
+            <!-- table content - posts and messages -->
+            <h3 class="mb-2 text-center">Messages</h3>
+            <div class="row">
+              
+              <div id="count" class="col m-3"></div>
 
-          <!-- table content - posts and messages -->
-          <!-- all posts made by user -->
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Item Name</th>
-                <th scope="col">Category</th>
-                <th scope="col">Instructor</th>
-                <th scope="col">Course</th>
-                <th scope="col">Price</th>
-                <th scope="col">Approval Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Test Item 1</td>
-                <td>Books</td>
-                <td>instructor name</td>
-                <td>course name</td>
-                <td>$17</td> 
-                <td>Approved</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Test Item 2</td>
-                <td>Clothing</td>
-                <td>null</td>
-                <td>null</td>
-                <td>$35</td> 
-                <td>Denied</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Test Item 3</td>
-                <td>Electronics</td>
-                <td>null</td>
-                <td>null</td>
-                <td>$5</td> 
-                <td>Pending</td>
-              </tr>
-            </tbody>
-          </table>
+              <table class="table">
 
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Item Name</th>
-                <th scope="col">From User</th>
-                <th scope="col">Message Body</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Test Item 1</td>
-                <td>student7</td>
-                <td>I would like to purchase this book, can we meet at the library?</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Test Item 1</td>
-                <td>student94</td>
-                <td>can meet at cesar chavez building, lmk if book still available</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Test Item 1</td>
-                <td>student18</td>
-                <td>Hello, saw your message for one of my items, we can do an exchange at the library if that's okay</td>
-              </tr>
-            </tbody>
-          </table>
+                <thead>
+                  <th scope="col"></th>
+                  <th scope="col">Item</th>
+                  <th scope="col">Sender ID</th>
+                  <th scope="col">Message Content</th>
+                  <th scope="col">Date Received</th>
+                </thead>
+
+                <!-- load messages into body of table -->
+
+                <tbody id="msgs"></tbody>
+
+              </table>
 
 
+              
+
+
+
+
+
+
+              <!-- all posts made by user -->
+              <!-- <div class="col-6">
+                <h3 class="mb-2 text-center">Posts</h3>
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <div class="table-responsive">
+                  <table class="table table-fixed table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Approval Status</th>
+                        <th scope="col">Total # Messages</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Test Item 1</td>
+                        <td>Books</td>
+                        <td>Approved</td>
+                        <td>3</td>
+                        <td>
+                          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"> -->
+                            <!-- <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a> -->
+                            <!-- <button type="button" class="btn btn-primary btn-sm nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">See all messages</button> -->
+                          <!-- </div>
+                         </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Test Item 2</td>
+                        <td>Books</td>
+                        <td>Approved</td>
+                        <td>3</td>
+                        <td> -->
+                          <!-- <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"> -->
+                            <!-- <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a> -->
+                            <!-- <button type="button" class="btn btn-primary btn-sm nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">See all messages</button> -->
+                          <!-- </div> -->
+                        <!-- </td> 
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Test Item 3</td>
+                        <td>Books</td>
+                        <td>Approved</td>
+                        <td>3</td>
+                        <td> -->
+                          <!-- <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"> -->
+                            <!-- <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> -->
+                            <!-- <button type="button" class="btn btn-primary btn-sm nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">See all messages</button> -->
+                          <!-- </div> -->
+                        <!-- </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+                </div>
+              </div> -->
+
+              <!-- all messages sent to user on respective posts -->
+              <!-- <div class="col-6">
+                <h3 class="mb-2 text-center">Messages</h3>
+
+                <div class="tab-content" id="v-pills-tabContent">
+                  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+                  <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                  <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+                </div> -->
+                
+                
+                <!-- <script>
+                  $(function () {
+                    $('#myTab li:last-child a').tab('show')
+                  })
+                </script> -->
+
+                <!-- <div class="table-responsive">
+                  <table class="table table-fixed table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">From User</th>
+                        <th scope="col">Timestamp</th>
+                        <th scope="col">Message Body</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Test Item 1</td>
+                        <td>student7</td>
+                        <td>nov 13 2020, 12:44 pm</td>
+                        <td>I would like to purchase this book, can we meet at the library?</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Test Item 1</td>
+                        <td>student94</td>
+                        <td>nov 28 2020, 8:30 pm</td>
+                        <td>can meet at cesar chavez building, lmk if book still available</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Test Item 1</td>
+                        <td>student18</td>
+                        <td>dec 4 2020, 7:17 am</td>
+                        <td>Hello, saw your message for one of my items, we can do an exchange at the library if that's okay</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div> -->
+              <!-- </div> -->
+
+            </div>
+
+          <!-- </div> -->
       </div>
+
+
+      <script>
+        
+        async function allMsgs() {
+          // need to get userId from cookie
+          function parseJwt(token) {
+              var base64Url = token.split('.')[1];
+              var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+              var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                  return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+              }).join(''));
+
+              return JSON.parse(jsonPayload);
+          };
+
+          function getCookie(c) {
+            var name = c + "=";
+            var decoded = decodeURIComponent(document.cookie);
+            var array = decoded.split(';');
+            for (var i = 0; i < array.length; i++) {
+              var temp = array[i];
+              while (temp.charAt(0) == ' ') {
+                temp = temp.substring(1);
+              }
+              if (temp.indexOf(name) == 0) {
+                return temp.substring(name.length, temp.length);
+              }
+            }
+            return "";
+          }
+          
+          // get the cookie value
+          var cookieVal = getCookie("token");
+
+          // parse the token and decode jwt
+          var payload = parseJwt(getCookie("token"));
+ 
+          // console.log(payload);
+
+          const userId = payload.id;
+
+          document.getElementById("welcome").innerHTML = "Welcome back, " + payload.email + "!"
+
+          let msgData = new XMLHttpRequest();
+          msgData.open("get", "http://localhost:3000/message/get/seller/" + userId);
+          msgData.send();
+
+          
+
+
+          msgData.onload = function() {
+            console.log(msgData.response);
+            var msgResponse = JSON.parse(msgData.responseText);
+            
+
+            var count = 0; 
+            msgResponse.results.forEach(item => {
+              count++;
+              document.getElementById("msgs").innerHTML +=
+              "<tr>" +
+                "<th scope='row'>" + count + "</th>" +
+                "<td><a href='item-details.html?id=" + item.post_id + "'>[item name]</a></td>" +
+                "<td>" + item.sender_id + "</td>" +
+                "<td>" + item.message_id + "</td>" +
+                
+              "</tr>";
+            });
+
+            document.getElementById("count").innerHTML += 
+              "Number of messages: " + count;
+
+          }
+
+
+        }
+
+        allMsgs();
+
+      </script>
+
 
       <!-- bottom navbar -->
       <nav class="navbar bottom navbar-expand-lg navbar-light bg-light justify-content-center">
