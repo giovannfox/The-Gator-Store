@@ -9,11 +9,11 @@ const {
 const {
     insertMessage,
     getMessagesBySellerId,
-    getMessagesByBuyerId, 
+    getMessagesByBuyerId,
     getMessagesByMessageId
 } = require("../models/messageModel.js");
 
-router.post("/create", validateCookie,upload.none(), async (req, res) => {
+router.post("/create", validateCookie, upload.none(), async (req, res) => {
     const postId = req.body.postid;
     const message = req.body.message;
     const userId = req.user.id;
@@ -48,11 +48,11 @@ router.get("/get/seller/:userId", async (req, res) => {
 /**
  * Route For getting the content of the message
  */
-router.get("/get/message/:messageId", async(req,res)=>{
+router.get("/get/message/:messageId", async (req, res) => {
     const message_id = req.params.messageId;
     console.log(message_id)
     const messages = await getMessagesByMessageId(message_id);
-    if(!messages)
+    if (!messages)
         return res
             .status(400)
             .json({

@@ -8,7 +8,7 @@ const db = require('../dbConnection');
  */
 const userExists = async (userEmail) => {
     const client = db.client()
-    const [results] = await client.query("SELECT count(email) as count FROM dev.Users WHERE LOWER(dev.Users.email) = LOWER(' " + userEmail + "');");
+    const [results] = await client.query("SELECT count(email) as count FROM Users WHERE LOWER(Users.email) = LOWER(' " + userEmail + "');");
 
     if (results[0].count > 0)
         return true
@@ -29,7 +29,7 @@ const insertUser = async (email, password, firstName = null, lastName = null) =>
 
     try {
         await client.query(
-            "INSERT INTO `dev`.`Users` ( `email`, `password`, `firstName`, `lastName`) VALUES ( '" + email + "', '" + password + "', '" + firstName + "', '" + lastName + "');")
+            "INSERT INTO Users ( email, password, firstName, lastName) VALUES ( '" + email + "', '" + password + "', '" + firstName + "', '" + lastName + "');")
     } catch (error) {
         if (error.message.includes("Duplicate")){
             return "duplicate entry"
@@ -43,7 +43,7 @@ const getUser = async (email, password = null) => {
     const client = db.client()
 
     const [results] = await client.query(
-        "SELECT id, email, password, firstName, lastName FROM dev.Users WHERE email = '" + email + "';")
+        "SELECT id, email, password, firstName, lastName FROM Users WHERE email = '" + email + "';")
 
     // console.log('results :>> ', results);
     return results[0]

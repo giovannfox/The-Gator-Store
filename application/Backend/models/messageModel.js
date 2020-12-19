@@ -8,7 +8,7 @@ const insertMessage = async (postId, content, sender_id) => {
     const client = db.client()
     try {
         await client.query(
-            "INSERT INTO `dev`.`Messages` ( `post_id`, `sender_id`, `content`) VALUES ( '" + postId + "', '" + sender_id + "', '" + content + "');");
+            "INSERT INTO Messages ( post_id, sender_id, content) VALUES ( '" + postId + "', '" + sender_id + "', '" + content + "');");
     } catch (error) {
         console.log(error)
         return false;
@@ -22,7 +22,7 @@ const insertMessage = async (postId, content, sender_id) => {
 const getMessagesBySellerId = async (userId) => {
     const client = db.client()
 
-    const promiseObject = client.query("SELECT content, Messages.id as message_id, post_id, sender_id, data, P.title as post_title from Messages JOIN Posts P on P.id = Messages.post_id JOIN Users U on U.id = Messages.sender_id WHERE P.user_id = '" + userId + "';")
+    const promiseObject = client.query("SELECT U.email as sender_email, content, Messages.id as message_id, post_id, sender_id, data, P.title as post_title from Messages JOIN Posts P on P.id = Messages.post_id JOIN Users U on U.id = Messages.sender_id WHERE P.user_id = '" + userId + "';")
         .then(([results, _fields]) => {
             return {
                 results
