@@ -17,7 +17,7 @@
             port: "3306",
             database: "production"
 5. Database username: prod
-6. Database password: g*KLycT@k3v0pB1%3&
+6. Database password: g*KLycT@k3v0pB1
 7. Database name (basically the name that contains all your tables): dev
 8. Instructions on how to use the above information.
 To connect to the server:
