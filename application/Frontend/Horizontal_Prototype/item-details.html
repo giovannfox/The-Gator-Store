@@ -128,7 +128,7 @@
                   <p id="description"></p>
 
                   <h5 class="my-3"><strong>Message seller</strong></h5>
-                  <form name ="messageForm" method = "POST" action = "/message" id = "messageForm" onSubmit=sendMessage()>
+                  <form name ="messageForm" method = "POST" action = "/message/create" id = "messageForm" onSubmit=sendMessage()>
                     <div class="form-group" name = "form-group" id="form-group">
                       <textarea type="textarea" name = "messagedetail" class="form-control" id="messageToSeller" row="4"></textarea>
                     </div>
@@ -163,8 +163,8 @@
           const postId = url.searchParams.get("id");
 
           let postData = new XMLHttpRequest();
-           postData.open("get", "http://localhost:3000/post/" + postId);
-          // postData.open("get", "http://35.163.149.5:3000/post/" + postId);
+          //postData.open("get", "http://localhost:3000/post/" + postId);
+           postData.open("get", "http://35.163.149.5:3000/post/" + postId);
           postData.send();
 
           postData.onload = function() {

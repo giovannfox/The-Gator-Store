@@ -13,11 +13,11 @@
     <br> If a ssh key is used please upload the key to the credentials folder.
 4. Database URL or IP and port used.
     <br><strong> NOTE THIS DOES NOT MEAN YOUR DATABASE NEEDS A PUBLIC FACING PORT.</strong> But knowing the IP and port number will help with SSH tunneling into the database. The default port is more than sufficient for this class.
-    host: "35.163.149.5",
-    port: "3306",
-    database: "dev",
-5. Database username: dev
-6. Database password: sYYRyoOuk0Et%3&
+            host: "35.163.149.5",
+            port: "3306",
+            database: "production"
+5. Database username: prod
+6. Database password: g*KLycT@k3v0pB1%3&
 7. Database name (basically the name that contains all your tables): dev
 8. Instructions on how to use the above information.
 To connect to the server:
