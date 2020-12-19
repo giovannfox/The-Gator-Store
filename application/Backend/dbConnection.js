@@ -14,7 +14,7 @@ const connect = async () => {
             port: "3306",
             database: "production",
             user: "prod",
-            password: "g*KLycT@k3v0pB1%3&"
+            password: "g*KLycT@k3v0pB1"
         });
 
         dbClient = pool.promise();
