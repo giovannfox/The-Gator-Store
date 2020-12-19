@@ -135,8 +135,8 @@
 
                 <thead>
                   <th scope="col"></th>
-                  <th scope="col">Item</th>
-                  <th scope="col">Sender ID</th>
+                  <th scope="col">Post Title</th>
+                  <th scope="col">From</th>
                   <th scope="col">Message Content</th>
                   <th scope="col">Date Received</th>
                 </thead>
@@ -370,9 +370,11 @@
               document.getElementById("msgs").innerHTML +=
               "<tr>" +
                 "<th scope='row'>" + count + "</th>" +
-                "<td><a href='item-details.html?id=" + item.post_id + "'>[item name]</a></td>" +
-                "<td>" + item.sender_id + "</td>" +
+
+                "<td>" + item.post_title + "</td>" +
+                "<td>" + item.sender_email + "</td>" +
                 "<td>" + item.content + "</td>" +
+                "<td>" + item.data + "</td>" +
                 
               "</tr>";
             });
